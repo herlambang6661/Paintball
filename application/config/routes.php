@@ -54,6 +54,7 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 $route['Dashboard'] = 'Dashboard/Index';
+$route['Stock'] = 'Stock/Index';
 $route['Kedatangan'] = 'Kedatangan/Index';
 
 // ============= START ROUTES UNTUK MENU BARANG ==============================

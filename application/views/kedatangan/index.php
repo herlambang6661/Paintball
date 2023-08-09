@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="<?= base_url(); ?>assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
     <link href="<?= base_url(); ?>assets/select2-4.1.0/dist/css/select2.css" rel="stylesheet" />
     <link href="<?= base_url(); ?>assets/select2-bootstrap/dist/select2-bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet" href="<?= base_url(); ?>assets/summernote/summernote-bs4.css">
     <!-- Library Header -->
     <body class="hold-transition sidebar-mini layout-fixed">
         <!-- ./wrapper -->
@@ -65,70 +66,88 @@
                                                                 </div>
                                                                 <div class="card-body">
                                                                     <div class="tab-content" id="custom-tabs-four-tabContent">
-                                                                        <div class="tab-pane fade active show" id="custom-tabs-four-1" role="tabpanel" aria-labelledby="custom-tabs-four-1-tab">
-                                                                            <section class="content">
-                                                                                <div class="container-fluid">
-                                                                                    <div class="row">
-                                                                                        <div class="col-lg-12 col-12">
-                                                                                            <div class="table-responsive">
-                                                                                                <table id="example1" class="table table-sm table-bordered table-hover" width="100%">
-                                                                                                    <thead class="bg-navy">
-                                                                                                        <tr>
-                                                                                                            <th width="5%">Id</th>
-                                                                                                            <th width="15%">KodeBarang</th>
-                                                                                                            <th>Barang</th>
-                                                                                                            <th>Qty</th>
-                                                                                                            <th>Satuan</th>
-                                                                                                            <th>Harga</th>
-                                                                                                            <th>Kurs</th>
-                                                                                                            <th width="10%">Opsi</th>
-                                                                                                        </tr>
-                                                                                                    </thead>
-                                                                                                </table>
+                                                                        <!-- panel 1 -->
+                                                                            <div class="tab-pane fade active show" id="custom-tabs-four-1" role="tabpanel" aria-labelledby="custom-tabs-four-1-tab">
+                                                                                <section class="content">
+                                                                                    <div class="container-fluid">
+                                                                                        <div class="row">
+                                                                                            <div class="col-lg-12 col-12">
+                                                                                                <div class="table-responsive">
+                                                                                                    <table id="kedatanganlist" class="table table-sm table-bordered table-hover text-nowrap" width="100%">
+                                                                                                        <thead class="bg-navy">
+                                                                                                            <tr>
+                                                                                                                <th width="5%">Id</th>
+                                                                                                                <th width="8%">No Form</th>
+                                                                                                                <th width="8%">KodeItem</th>
+                                                                                                                <th width="8%">KodeBarang</th>
+                                                                                                                <th>Barang</th>
+                                                                                                                <th>Qty</th>
+                                                                                                                <th>Satuan</th>
+                                                                                                                <th>Harga</th>
+                                                                                                                <th>Kurs</th>
+                                                                                                                <th>Trucking</th>
+                                                                                                                <th>Bea Cukai</th>
+                                                                                                                <th width="8%">Opsi</th>
+                                                                                                            </tr>
+                                                                                                        </thead>
+                                                                                                    </table>
+                                                                                                </div>
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
-                                                                                </div>
-                                                                            </section>                                                                        
-                                                                        </div>
-                                                                        <div class="tab-pane fade" id="custom-tabs-four-2" role="tabpanel" aria-labelledby="custom-tabs-four-2-tab">
-                                                                            <div class="row">
-                                                                                <div class="col">
-                                                                                    <div class="card">
-                                                                                        <div class="card-body">
-                                                                                            <div class="mb-3">
-                                                                                                <label for="" class="form-label">Nomor Form</label>
-                                                                                                <input type="text" readonly class="form-control form-control-sm" placeholder="" aria-describedby="helpId" value="<?php echo $kodeBarang; ?>">
-                                                                                            </div>
-                                                                                            <div class="mb-3">
-                                                                                                <label for="" class="form-label">Tanggal</label>
-                                                                                                <input type="date" name="" id="" class="form-control form-control-sm" placeholder="" aria-describedby="helpId" value="<?php echo date('Y-m-d');?>">
-                                                                                            </div>
-                                                                                            <div class="mb-3">
-                                                                                                <button type="button" class="btn btn-sm btn-primary" onclick="tambahItem(); return false;"><i class="fas fa-plus-circle"></i> Tambah Barang</button>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="col-lg-9">
-                                                                                </div>
+                                                                                </section>                                                                        
                                                                             </div>
-                                                                            
-                                                                            <input id="idf" value="1" type="hidden" />
-                                                                            <table id="detail_transaksi"class="table table-sm control-group text-nowrap" border="1" style="width: 100%;text-align:center;font-weight: bold;">
-                                                                                <thead>
-                                                                                    <td style="border-left-color:#FFFFFF;border-top-color:#FFFFFF;border-bottom-color:#FFFFFF;" width="5%"></td>
-                                                                                    <td style="border-color:black" class="bg-gradient-primary text-white" width="20%">Nama</td>
-                                                                                    <td style="border-color:black" class="bg-gradient-primary text-white" width="10%">Qty</td>
-                                                                                    <td style="border-color:black" class="bg-gradient-primary text-white" width="10%">Satuan</td>
-                                                                                    <td style="border-color:black" class="bg-gradient-primary text-white" width="10%">Harga</td>
-                                                                                    <td style="border-color:black" class="bg-gradient-primary text-white" width="10%">Kurs</td>
-                                                                                    <td style="border-color:black" class="bg-gradient-primary text-white" width="10%">Trucking</td>
-                                                                                    <td style="border-color:black" class="bg-gradient-primary text-white" width="10%">Bea Cukai</td>
-                                                                                </thead>
-                                                                            </table>
-                                                                            <button type="button" class="btn btn-success" onclick="simpandata();"><i class="fas fa-save"></i> Simpan</button>
-                                                                        </div>
+                                                                        <!-- panel 1 -->
+                                                                        <!-- panel 2 -->
+                                                                            <div class="tab-pane fade" id="custom-tabs-four-2" role="tabpanel" aria-labelledby="custom-tabs-four-2-tab">
+                                                                                <div class="row">
+                                                                                    <div class="col">
+                                                                                        <div class="card">
+                                                                                            <div class="card-body">
+                                                                                                <div class="mb-3">
+                                                                                                    <label for="" class="form-label">Nomor Form</label>
+                                                                                                    <input type="text" readonly class="form-control form-control-sm" placeholder="" aria-describedby="helpId" value="<?php echo $kodeBarang; ?>">
+                                                                                                </div>
+                                                                                                <div class="mb-3">
+                                                                                                    <label for="" class="form-label">Tanggal</label>
+                                                                                                    <input type="date" name="tanggal" id="" class="form-control form-control-sm" placeholder="" aria-describedby="helpId" value="<?php echo date('Y-m-d');?>">
+                                                                                                </div>
+                                                                                                <div class="mb-3">
+                                                                                                    <button type="button" class="btn btn-sm btn-primary" onclick="tambahItem(); return false;"><i class="fas fa-plus-circle"></i> Tambah Barang</button>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="col-lg-9">
+                                                                                    </div>
+                                                                                </div>
+                                                                                
+                                                                                <input id="idf" value="1" type="hidden" />
+                                                                                <table id="detail_transaksi" class="table table-sm control-group text-nowrap" border="1" style="width: 100%;text-align:center;font-weight: bold;">
+                                                                                    <thead>
+                                                                                        <td style="border-left-color:#FFFFFF;border-top-color:#FFFFFF;border-bottom-color:#FFFFFF;" width="5%"></td>
+                                                                                        <td style="border-color:black" class="bg-gradient-primary text-white" width="20%">Nama</td>
+                                                                                        <td style="border-color:black" class="bg-gradient-primary text-white" width="10%">Qty</td>
+                                                                                        <td style="border-color:black" class="bg-gradient-primary text-white" width="10%">Satuan</td>
+                                                                                        <td style="border-color:black" class="bg-gradient-primary text-white" width="10%">Harga</td>
+                                                                                        <td style="border-color:black" class="bg-gradient-primary text-white" width="10%">Kurs</td>
+                                                                                        <td style="border-color:black" class="bg-gradient-primary text-white" width="10%">Trucking</td>
+                                                                                        <td style="border-color:black" class="bg-gradient-primary text-white" width="10%">Bea Cukai</td>
+                                                                                    </thead>
+                                                                                </table>
+                                                                                <div class="row">
+                                                                                    <div class="col">
+                                                                                        <div class="card">
+                                                                                            <div class="card-body">
+                                                                                                <label class="form-label">Keterangan Tambahan</label>
+                                                                                                <textarea  name="keteranganform" id="keteranganform"></textarea>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <button type="button" class="btn btn-success" onclick="simpandata();"><i class="fas fa-save"></i> Simpan</button>
+                                                                            </div>
+                                                                        <!-- panel 2 -->
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -229,16 +248,6 @@
             td.innerHTML += "<input type='number' name='beacukai[]' id='beacukai_"+idf+"' class='form-control form-control-sm inputNone' style='border-color:black;text-transform: uppercase;'>";
             tr.appendChild(td);
 
-            // Here is the callback
-            // tr.onload = function(){
-            //     $('select[name*="produk_"]').select2();
-            // }
-
-            // $("#kodeproduk"+idf).select2(); 
-            // tr.onload = function(){ 
-            //     $('.select2').select2(); 
-            // }
-
             detail_transaksi.appendChild(tr);
             
             idf = (idf - 1) + 2;
@@ -274,9 +283,9 @@
         function simpandata() {
             var str     = $("form#add-form").serialize();
             $.ajax({
-                url: "<?= base_url() ?>Kedatangan/save",
+                url: "<?= base_url() ?>Kedatangan/kedatangansave",
                 type: "POST",
-                data: str,                
+                data: str,       
                 // type: "POST",
                 beforeSend: function() {
                     Swal.fire({
@@ -310,15 +319,13 @@
                                 },
                             })
                             .then(function() {
-                                window.location.href = "<?php echo base_url() ?>Dashboard";
+                                window.location.href = "<?php echo base_url() ?>Kedatangan";
                             });
                     } else {
                         Swal.fire({
-                            title: 'Gagal Masuk',
-                            text: 'Username & Password tidak cocok',
-                            html: '<center><lottie-player src="https://assets7.lottiefiles.com/private_files/lf30_GjhcdO.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop autoplay></lottie-player></center><br><h1 class="h4">Username & Password tidak cocok</h1>',
-                            imageWidth: 400,
-                            imageAlt: 'Error Login',
+                            icon: 'warning',
+                            title: 'Gagal Menyimpan',
+                            text: 'Tidak ada data yang diinput, pastikan input anda benar',
                         });
                     }
                     console.log(response);
@@ -336,6 +343,189 @@
                 }
             });
         }
+
+        
+        $(document).ready(function(){
+            $('#keteranganform').summernote({
+                height: 100,                 // set editor height
+                minHeight: null,             // set minimum height of editor
+                maxHeight: null,             // set maximum height of editor
+                focus: true,                  // set focus to editable area after initializing summernote
+                // placeholder: 'Masukkan Keterangan tambahan jika diperlukan',
+                toolbar: [
+                    // [groupName, [list of button]]
+                    ['style', ['bold', 'italic', 'underline', 'clear']],
+                    // ['font', ['strikethrough', 'superscript', 'subscript']],
+                    ['fontsize', ['fontsize']],
+                    // ['color', ['color']],
+                    ['para', [
+                        'ul', 
+                        'ol', 
+                        // 'paragraph'
+                    ]],
+                    ['misc', ['undo', 'redo']]
+                    // ['height', ['height']]
+                ]
+            });
+
+            $('#kedatanganlist').dataTable({
+                "lengthChange": true,
+                "paging": true,
+                "processing": true,
+                "serverSide": true,
+                "order": [],
+                "lengthMenu": [
+                    [30, 5, 10, 25, 50, -1],
+                    ['Default', '5', '10', '25', '50', 'Tampilkan Semua']
+                ],
+                "language": {
+                    "lengthMenu": "_MENU_ ",
+                    "zeroRecords": "Data Tidak Ditemukan",
+                    "info": "Menampilkan _START_ sampai _END_ dari _TOTAL_ total data",
+                    "infoEmpty": "Data Tidak Ditemukan",
+                    "infoFiltered": "(Difilter dari _MAX_ total records)",
+                    "processing": '<b>Sedang memuat data<b><br><span class="loader"></span>',
+                    "search": "<i class='fas fa-search'></i>",
+                    "paginate": {
+                        "first":      "Awal",
+                        "last":       "Akhir",
+                        "next":       "<i class='fa-solid fa-forward'></i>",
+                        "previous":   "<i class='fa-solid fa-backward'></i>"
+                    },
+                },
+                // "dom": "<'row'<'col-sm-6'l><'col-sm-6'f>>" + "<'row'<'col-sm-12'tr>>" + "<'row'<'col-sm-5'><'col-sm-7'p>>",
+                "buttons": [
+                    {
+                        "className": 'btn btn-sm btn-info',
+                        "text": '<i class="fa-solid fa-arrows-rotate"></i> Refresh',
+                        "action": function ( e, dt, node, config ) {
+                                    dt.ajax.reload();
+                                }
+                    }
+                ],
+                "ajax": {
+                    "url": "<?= base_url(); ?>Kedatangan/getKedatanganDatatables",
+                    "cache": "false",
+                    cache: false,
+                    "type": "POST",
+                },
+                "columns": [{
+                        "bVisible": false,
+                        "aTargets": [0]
+                    },{
+                        "bVisible": false,
+                        "aTargets": [0]
+                    },
+                    {className: "text-center"},
+                    {className: "text-center"},
+                    {className: "text-center"},
+                    {className: "text-center"},
+                    {className: "text-center"},
+                    {className: "text-center"},
+                    {className: "text-center"},
+                    {className: "text-center"},
+                    {className: "text-center"},
+                    {
+                        className: "text-center",
+                        mRender: function(data, type, row) {
+                            var bindHtml = '';
+                            bindHtml += '<a data-toggle="modal" data-target="#update-barang" href="javascript:void(0);" title="Ubah Data Barang" class="update-barang-details ml-1 btn-ext-small btn btn-sm btn-primary" data-id="' + row[0] + '"><i class="fas fa-edit"></i></a>';
+                            bindHtml += '<a data-toggle="modal" href="javascript:void(0);" title="Hapus Data Barang" class="remove ml-1 btn-ext-small btn btn-sm btn-danger" data-id="' + row[0] + '" data-nama="' + row[4] + '" data-kode="' + row[2] + '"><i class="fas fa-trash"></i></a>';
+                            return bindHtml;
+                        }
+                    },
+
+                ],
+                "fnCreatedRow": function(nRow, aData, iDataIndex) {
+                    $(nRow).attr('id', aData[0]);
+                }
+            });
+
+            function filterGlobal(v) {
+                $('#kedatanganlist').DataTable().search(
+                    v,
+                    false,
+                    false
+                ).draw();
+            }
+            $('input.global_filter').on('keyup click', function() {
+                var v = $(this).val();
+                filterGlobal(v);
+            });
+            $('input.column_filter').on('keyup click', function() {
+                $('#kedatanganlist').DataTable().ajax.reload();
+            });
+            
+            $('#kedatanganlist').on('click', '.remove', function() {
+                var id = $(this).data('id');
+                var kode = $(this).data('kode');
+                var nama = $(this).data('nama');
+
+                swal.fire({
+                    title: 'Apakah Anda Yakin?',
+                    text: "Data akan dihapus : " + nama + " ( " + kode + " ) ",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#d33',
+                    cancelButtonColor: '#3085d6',
+                    confirmButtonText: 'Ya',
+                    cancelButtonText: 'Tidak',
+                }).then((result) => {
+                    if (result.value) {
+                        $.ajax({
+                                url: '<?= base_url() ?>Barang/delete',
+                                type: 'POST',
+                                data: {
+                                    id: id,
+                                },
+                                dataType: 'json',
+                            
+                                beforeSend: function() {
+                                    Swal.fire({
+                                        title: 'Mohon Menunggu',
+                                        html: '<center><lottie-player src="https://assets9.lottiefiles.com/private_files/lf30_al2qt2jz.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop autoplay></lottie-player></center><br><h1 class="h4">Sedang Menghapus Data</h1>',
+                                        showConfirmButton: false,
+                                        timerProgressBar: true,
+                                        allowOutsideClick: false,
+                                        allowEscapeKey: false,
+                                    })
+                                },
+                                success: function (returnhtml) {
+                                    Swal.fire({
+                                        icon: 'success',
+                                        title: "Berhasil!",
+                                        html: 'Data sudah terhapus, Mohon menunggu hingga halaman di Refresh',
+                                        showConfirmButton: false,
+                                        allowOutsideClick: false,
+                                        allowEscapeKey: false,
+                                        showCancelButton: false,
+                                        showConfirmButton: false
+                                    });
+                                    location.reload(true);
+                                },
+                                error: function(xhr) { // if error occured
+                                    Swal.fire({
+                                        icon: 'error',
+                                        title: 'Oops...',
+                                        text: 'Something went wrong! Error Code:'+xhr,
+                                    })
+                                },
+                                
+                            })
+                            .done(function(response) {
+                                swal.fire('Terhapus', response.message, response.status);
+                                table.ajax.reload(null, false);
+                                location.reload();
+                            })
+                            .fail(function() {
+                                swal.fire('Oops...', 'Something went wrong with ajax !', 'error');
+                            });
+                    }
+
+                })
+            });
+        });
     </script>
     <!-- Page specific script -->
+    <script src="<?= base_url() ?>assets/summernote/summernote-bs4.js"></script>
 </html>

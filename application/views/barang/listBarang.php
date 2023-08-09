@@ -307,7 +307,7 @@
             $('#add-barang').click(function() {
                 var str     = $("form").serialize();
                 // var str     = $("form#tambahBarang").serialize();
-                alert(str);
+                // alert(str);
                 $.ajax({
                     url: "<?= base_url() ?>Barang/save",
                     type: "POST",
@@ -335,11 +335,12 @@
                         });
                         location.reload(true);
                     },
-                    error: function(xhr) { // if error occured
+                    error: function(response) { // if error occured
                         Swal.fire({
                             icon: 'error',
                             title: 'Oops...',
-                            text: 'Something went wrong! Error Code:'+xhr,
+                            html: response['responseText'],
+                            // text: 'Something went wrong! Error Code:'+xhr,
                         })
                     },
                 });
@@ -367,6 +368,7 @@
                             type: 'POST',
                             data: {
                                 id: id,
+                                kode: kode,
                             },
                             dataType: 'json',
                         

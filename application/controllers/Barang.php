@@ -6,6 +6,9 @@ class Barang extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
+        if ($this->session->userdata('status') != "login") {
+            redirect(base_url());
+        }
         date_default_timezone_set('Asia/Jakarta');
         // List of Models
         $models = array(
@@ -65,21 +68,35 @@ class Barang extends CI_Controller {
         $namabarang = $post['namabarang'];
         $dibuat 	= $this->session->userdata("nama");
 
-        $dataBarang = array(
-            'tgl_input' => $tanggal,
-            'kodebarang' => $kode,
-            'namabarang' => $namabarang,
-            'user_input' => $dibuat
-        );
-        $this->barang->save('barang', $dataBarang);
-        redirect('Barang/index', $data);
+        if (!empty($namabarang)) {
+            $dataBarang = array(
+                'tgl_input' => $tanggal,
+                'kodebarang' => $kode,
+                'namabarang' => $namabarang,
+                'user_input' => $dibuat
+            );
+            $this->barang->save('pb_barang', $dataBarang);
+            
+            $dataStock = array(
+                'kodebarang' => $kode,
+                'nama' => $namabarang,
+                'qty' => '0',
+                'dibuat' => $dibuat
+            );
+            $this->barang->save('pb_stock', $dataStock);
+            // redirect('Barang/index', $data);
+            echo "success";
+        } else {
+            echo "error";
+        }
     }
 
 	public function delete(){
-        // id yang telah diparsing pada ajax ajaxcrud.php data{id:id}
         $id = $this->input->post('id');
+        $kode = $this->input->post('kode');
 
-        $data = $this->barang->deleteBarang('barang', 'id_barang', $id);
+        $data = $this->barang->deleteBarang('pb_barang', 'id_barang', $id);
+        $data2 = $this->barang->deleteBarang('pb_stock', 'kodebarang', $kode);
 
         if ($data) {
             $output['status'] = 'success';

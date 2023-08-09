@@ -3,12 +3,14 @@ if ($active == 'dashboard') {
     $dashboard = 'active';
     $mdashboard = 'menu-open';
     $mbarang = '';
+    $stock = '';
     $mdaftar = '';
     $listbarang = '';
     $kedatangan = '';
 } elseif ($active == 'kedatangan') {
     $mbarang = 'menu-open';
     $kedatangan = 'active';
+    $stock = '';
     $mdaftar = '';
     $listbarang = '';
     $dashboard = '';
@@ -16,6 +18,15 @@ if ($active == 'dashboard') {
 } elseif ($active == 'listbarang') {
     $mbarang = 'menu-open';
     $listbarang = 'active';
+    $stock = '';
+    $mdaftar = '';
+    $kedatangan = '';
+    $dashboard = '';
+    $mdashboard = '';
+} elseif ($active == 'stock') {
+    $mbarang = 'menu-open';
+    $stock = 'active';
+    $listbarang = '';
     $mdaftar = '';
     $kedatangan = '';
     $dashboard = '';
@@ -23,6 +34,7 @@ if ($active == 'dashboard') {
 } else {
     $mbarang = '';
     $dashboard = '';
+    $stock = '';
     $mdashboard = '';
     $mdaftar = '';
 }
@@ -105,6 +117,12 @@ if ($active == 'dashboard') {
                                                         <a href="<?= base_url(); ?>Barang/List" class="nav-link <?php echo $listbarang; ?>" style="margin-left: 15px">
                                                             <i class="nav-icon fas fa-boxes fa-fw"></i>
                                                             <p>List Barang</p>
+                                                        </a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a href="<?= base_url(); ?>Stock" class="nav-link <?php echo $stock; ?>" style="margin-left: 15px">
+                                                            <i class="nav-icon fa-fw fa-solid fa-cubes-stacked"></i>
+                                                            <p>Stock Barang</p>
                                                         </a>
                                                     </li>
                                                     <li class="nav-item">
