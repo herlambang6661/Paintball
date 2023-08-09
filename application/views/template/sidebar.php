@@ -153,25 +153,20 @@ if ($active == 'dashboard') {
                                                     </li>
                                                 </ul>
                                             </li>
+                                            
                                             <li class="nav-item">
                                                 <a href="#" class="nav-link">
-                                                    <i class="nav-icon fas fa-copy"></i>
+                                                    <i class="fa-solid nav-icon fa-magnifying-glass-location"></i>
                                                     <p>
-                                                        Report
+                                                        Lacak
                                                         <i class="fas fa-angle-right right"></i>
                                                     </p>
                                                 </a>
                                                 <ul class="nav nav-treeview">
                                                     <li class="nav-item">
                                                         <a href="pages/layout/top-nav.html" class="nav-link" style="margin-left: 15px">
-                                                            <i class="far fa-circle nav-icon"></i>
-                                                            <p>Top Navigation</p>
-                                                        </a>
-                                                    </li>
-                                                    <li class="nav-item">
-                                                        <a href="pages/layout/top-nav-sidebar.html" class="nav-link" style="margin-left: 15px">
-                                                            <i class="far fa-circle nav-icon"></i>
-                                                            <p>Top Navigation + Sidebar</p>
+                                                            <i class="fa-solid fa-cart-shopping"></i>
+                                                            <p>Lacak Barang</p>
                                                         </a>
                                                     </li>
                                                 </ul>

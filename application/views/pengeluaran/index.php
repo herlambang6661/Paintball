@@ -157,7 +157,7 @@
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
-                                                                                <button type="button" class="btn btn-info" onclick="simpandata();"><i class="fas fa-save"></i> Simpan</button>
+                                                                                <button type="button" class="btn btn-info" onclick=""><i class="fas fa-save"></i> Simpan</button>
                                                                             </div>
                                                                         <!-- panel 2 -->
                                                                     </div>
@@ -208,7 +208,17 @@
     <script src="<?= base_url(); ?>assets/select2-4.1.0/dist/js/select2.full.min.js"></script>
     <!-- Library Footer -->
     <script>
-        function tambahkebawah(){
+        
+        $(document).on('click', '.tambahkebawah', function() {
+            var qty_atas = $(this).data('qty');
+            var satuan_atas = $(this).data('satuan');
+            var harga_atas = $(this).data('harga');
+            var kurs_atas = $(this).data('kurs');
+            var trucking_atas = $(this).data('trucking');
+            var beacukai_atas = $(this).data('beacukai');
+            
+            var namabrg_atas = $(this).data('namabrg');
+            var idbrg_atas = $(this).data('idbrg');
             
             var idf = document.getElementById("idf").value;
 
@@ -226,37 +236,37 @@
 
             // Kolom 2 Nama Barang
             var td = document.createElement("td");
-            td.innerHTML += '<select name="namabarang[]" class="form-control form-control-sm elementbrn inputNone" style="width:100%"><option></option></select>';
+            td.innerHTML += '<select name="namabarang[]" class="form-control form-control-sm elementbrn inputNone" style="width:100%"><option value="'+idbrg_atas+'" selected="selected">('+idbrg_atas+') ' +namabrg_atas+'</option></select>';
             tr.appendChild(td);
 
             // Kolom 3 Qty
             var td = document.createElement("td");
-            td.innerHTML += "<input type='number' name='qty[]' id='qty_"+idf+"' class='form-control form-control-sm inputNone' style='border-color:black;text-transform: uppercase;'>";
+            td.innerHTML += "<input type='text' name='qty[]' value='"+qty_atas+"' id='qty_"+idf+"' class='form-control form-control-sm inputNone' style='border-color:black;text-transform: uppercase;'>";
             tr.appendChild(td);
 
             // Kolom 4 Satuan
             var td = document.createElement("td");
-            td.innerHTML += "<input type='text' name='satuan[]' id='satuan_"+idf+"' class='form-control form-control-sm inputNone' style='border-color:black;text-transform: uppercase;'>";
+            td.innerHTML += "<input type='text' name='satuan[]' value='"+satuan_atas+"' id='satuan_"+idf+"' class='form-control form-control-sm inputNone' style='border-color:black;text-transform: uppercase;'>";
             tr.appendChild(td);
 
             // Kolom 5 Harga
             var td = document.createElement("td");
-            td.innerHTML += "<input type='number' name='harga[]' id='harga_"+idf+"' class='form-control form-control-sm inputNone' style='border-color:black;text-transform: uppercase;'>";
+            td.innerHTML += "<input type='number' name='harga[]' value='"+harga_atas+"' id='harga_"+idf+"' class='form-control form-control-sm inputNone' style='border-color:black;text-transform: uppercase;'>";
             tr.appendChild(td);
 
             // Kolom 6 Kurs
             var td = document.createElement("td");
-            td.innerHTML += "<input type='number' name='kurs[]' id='kurs_"+idf+"' class='form-control form-control-sm inputNone' style='border-color:black;text-transform: uppercase;'>";
+            td.innerHTML += "<input type='number' name='kurs[]' value='"+kurs_atas+"' id='kurs_"+idf+"' class='form-control form-control-sm inputNone' style='border-color:black;text-transform: uppercase;'>";
             tr.appendChild(td);
 
             // Kolom 6 Trucking
             var td = document.createElement("td");
-            td.innerHTML += "<input type='number' name='trucking[]' id='trucking_"+idf+"' class='form-control form-control-sm inputNone' style='border-color:black;text-transform: uppercase;'>";
+            td.innerHTML += "<input type='number' name='trucking[]' value='"+kurs_atas+"' id='trucking_"+idf+"' class='form-control form-control-sm inputNone' style='border-color:black;text-transform: uppercase;'>";
             tr.appendChild(td);
 
             // Kolom 6 Bea Cukai
             var td = document.createElement("td");
-            td.innerHTML += "<input type='number' name='beacukai[]' id='beacukai_"+idf+"' class='form-control form-control-sm inputNone' style='border-color:black;text-transform: uppercase;'>";
+            td.innerHTML += "<input type='number' name='beacukai[]' value='"+beacukai_atas+"' id='beacukai_"+idf+"' class='form-control form-control-sm inputNone' style='border-color:black;text-transform: uppercase;'>";
             tr.appendChild(td);
 
             detail_transaksi.appendChild(tr);
@@ -285,12 +295,10 @@
                     cache: true
                 },
             });
-
-        }
+        });
         // function tambahItem() {
             
         //     var idf = document.getElementById("idf").value;
-
         //     var detail_transaksi = document.getElementById("detail_transaksi");
             
         //     var tr = document.createElement("tr");
