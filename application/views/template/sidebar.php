@@ -3,13 +3,16 @@ if ($active == 'dashboard') {
     $dashboard = 'active';
     $mdashboard = 'menu-open';
     $mbarang = '';
+    $mpengaturan = '';
     $stock = '';
     $mdaftar = '';
     $listbarang = '';
     $kedatangan = '';
     $penjualan = '';
+    $pengguna = '';
 } elseif ($active == 'kedatangan') {
     $mbarang = 'menu-open';
+    $mpengaturan = '';
     $kedatangan = 'active';
     $stock = '';
     $mdaftar = '';
@@ -17,8 +20,10 @@ if ($active == 'dashboard') {
     $dashboard = '';
     $mdashboard = '';
     $penjualan = '';
+    $pengguna = '';
 } elseif ($active == 'listbarang') {
     $mbarang = 'menu-open';
+    $mpengaturan = '';
     $listbarang = 'active';
     $stock = '';
     $mdaftar = '';
@@ -26,8 +31,10 @@ if ($active == 'dashboard') {
     $dashboard = '';
     $mdashboard = '';
     $penjualan = '';
+    $pengguna = '';
 } elseif ($active == 'stock') {
     $mbarang = 'menu-open';
+    $mpengaturan = '';
     $stock = 'active';
     $listbarang = '';
     $mdaftar = '';
@@ -35,8 +42,10 @@ if ($active == 'dashboard') {
     $dashboard = '';
     $mdashboard = '';
     $penjualan = '';
+    $pengguna = '';
 } elseif ($active == 'penjualan') {
     $mbarang = 'menu-open';
+    $mpengaturan = '';
     $stock = '';
     $listbarang = '';
     $mdaftar = '';
@@ -44,13 +53,27 @@ if ($active == 'dashboard') {
     $dashboard = '';
     $mdashboard = '';
     $penjualan = 'active';
+    $pengguna = '';
+} elseif ($active == 'pengguna') {
+    $mbarang = '';
+    $mpengaturan = 'menu-open';
+    $stock = '';
+    $listbarang = '';
+    $mdaftar = '';
+    $kedatangan = '';
+    $dashboard = '';
+    $mdashboard = '';
+    $penjualan = '';
+    $pengguna = 'active';
 } else {
     $mbarang = '';
+    $mpengaturan = '';
     $dashboard = '';
     $stock = '';
     $penjualan = '';
     $mdashboard = '';
     $mdaftar = '';
+    $pengguna = '';
 }
 ?>
                 <!-- Main Sidebar Container -->
@@ -177,7 +200,7 @@ if ($active == 'dashboard') {
                                                 </ul>
                                             </li>
                                             
-                                            <li class="nav-item">
+                                            <li class="nav-item <?php echo $mdashboard; ?>">
                                                 <a href="#" class="nav-link">
                                                     <i class="nav-icon fas fa-wrench"></i>
                                                     <p>
@@ -187,7 +210,7 @@ if ($active == 'dashboard') {
                                                 </a>
                                                 <ul class="nav nav-treeview">
                                                     <li class="nav-item">
-                                                        <a href="pages/layout/top-nav.html" class="nav-link" style="margin-left: 15px">
+                                                        <a class="nav-link <?php echo $pengguna; ?>" style="margin-left: 15px" href="<?= base_url('user') ?>">
                                                             <i class="fas fa-2xs fa-users nav-icon"></i>
                                                             <p>Pengguna</p>
                                                         </a>
