@@ -7,7 +7,7 @@ if ($active == 'dashboard') {
     $mdaftar = '';
     $listbarang = '';
     $kedatangan = '';
-    $penjualan = '';
+    $pengeluaran = '';
 } elseif ($active == 'kedatangan') {
     $mbarang = 'menu-open';
     $kedatangan = 'active';
@@ -16,7 +16,7 @@ if ($active == 'dashboard') {
     $listbarang = '';
     $dashboard = '';
     $mdashboard = '';
-    $penjualan = '';
+    $pengeluaran = '';
 } elseif ($active == 'listbarang') {
     $mbarang = 'menu-open';
     $listbarang = 'active';
@@ -25,7 +25,7 @@ if ($active == 'dashboard') {
     $kedatangan = '';
     $dashboard = '';
     $mdashboard = '';
-    $penjualan = '';
+    $pengeluaran = '';
 } elseif ($active == 'stock') {
     $mbarang = 'menu-open';
     $stock = 'active';
@@ -34,8 +34,8 @@ if ($active == 'dashboard') {
     $kedatangan = '';
     $dashboard = '';
     $mdashboard = '';
-    $penjualan = '';
-} elseif ($active == 'penjualan') {
+    $pengeluaran = '';
+} elseif ($active == 'pengeluaran') {
     $mbarang = 'menu-open';
     $stock = '';
     $listbarang = '';
@@ -43,12 +43,12 @@ if ($active == 'dashboard') {
     $kedatangan = '';
     $dashboard = '';
     $mdashboard = '';
-    $penjualan = 'active';
+    $pengeluaran = 'active';
 } else {
     $mbarang = '';
     $dashboard = '';
     $stock = '';
-    $penjualan = '';
+    $pengeluaran = '';
     $mdashboard = '';
     $mdaftar = '';
 }
@@ -146,9 +146,9 @@ if ($active == 'dashboard') {
                                                         </a>
                                                     </li>
                                                     <li class="nav-item">
-                                                        <a href="<?= base_url(); ?>Penjualan" class="nav-link <?php echo $penjualan; ?>" style="margin-left: 15px">
-                                                            <i class="fas fa-dollar-sign nav-icon fa-fw"></i>
-                                                            <p>Penjualan</p>
+                                                        <a href="<?= base_url(); ?>Pengeluaran" class="nav-link <?php echo $pengeluaran; ?>" style="margin-left: 15px">
+                                                            <i class="fa-solid fa-truck-ramp-box nav-icon"></i>
+                                                            <p>Pengeluaran</p>
                                                         </a>
                                                     </li>
                                                 </ul>
@@ -188,8 +188,14 @@ if ($active == 'dashboard') {
                                                 <ul class="nav nav-treeview">
                                                     <li class="nav-item">
                                                         <a href="pages/layout/top-nav.html" class="nav-link" style="margin-left: 15px">
-                                                            <i class="fas fa-2xs fa-users nav-icon"></i>
+                                                            <i class="fas fa-users nav-icon"></i>
                                                             <p>Pengguna</p>
+                                                        </a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a href="pages/layout/top-nav.html" class="nav-link" style="margin-left: 15px">
+                                                            <i class="fas fa-trash-can nav-icon"></i>
+                                                            <p>Trash</p>
                                                         </a>
                                                     </li>
                                                 </ul>
