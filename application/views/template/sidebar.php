@@ -7,6 +7,7 @@ if ($active == 'dashboard') {
     $mdaftar = '';
     $listbarang = '';
     $kedatangan = '';
+    $penjualan = '';
 } elseif ($active == 'kedatangan') {
     $mbarang = 'menu-open';
     $kedatangan = 'active';
@@ -15,6 +16,7 @@ if ($active == 'dashboard') {
     $listbarang = '';
     $dashboard = '';
     $mdashboard = '';
+    $penjualan = '';
 } elseif ($active == 'listbarang') {
     $mbarang = 'menu-open';
     $listbarang = 'active';
@@ -23,6 +25,7 @@ if ($active == 'dashboard') {
     $kedatangan = '';
     $dashboard = '';
     $mdashboard = '';
+    $penjualan = '';
 } elseif ($active == 'stock') {
     $mbarang = 'menu-open';
     $stock = 'active';
@@ -31,10 +34,21 @@ if ($active == 'dashboard') {
     $kedatangan = '';
     $dashboard = '';
     $mdashboard = '';
+    $penjualan = '';
+} elseif ($active == 'penjualan') {
+    $mbarang = 'menu-open';
+    $stock = '';
+    $listbarang = '';
+    $mdaftar = '';
+    $kedatangan = '';
+    $dashboard = '';
+    $mdashboard = '';
+    $penjualan = 'active';
 } else {
     $mbarang = '';
     $dashboard = '';
     $stock = '';
+    $penjualan = '';
     $mdashboard = '';
     $mdaftar = '';
 }
@@ -132,7 +146,7 @@ if ($active == 'dashboard') {
                                                         </a>
                                                     </li>
                                                     <li class="nav-item">
-                                                        <a href="./index3.html" class="nav-link" style="margin-left: 15px">
+                                                        <a href="<?= base_url(); ?>Penjualan" class="nav-link <?php echo $penjualan; ?>" style="margin-left: 15px">
                                                             <i class="fas fa-dollar-sign nav-icon fa-fw"></i>
                                                             <p>Penjualan</p>
                                                         </a>
