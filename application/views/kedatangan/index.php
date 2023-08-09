@@ -255,7 +255,7 @@
             
             $(".elementbrn").select2({
                 language: "id",
-                placeholder: "Pilih Mesin",
+                placeholder: "Pilih Barang",
                 ajax: {
                     url: "<?= base_url(); ?>/Kedatangan/getBarang",
                     type: "post",

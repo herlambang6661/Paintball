@@ -70,7 +70,7 @@ if ($active == 'dashboard') {
     $mpengaturan = '';
     $dashboard = '';
     $stock = '';
-    $penjualan = '';
+    $pengeluaran = '';
     $mdashboard = '';
     $mdaftar = '';
     $pengguna = '';
@@ -169,32 +169,27 @@ if ($active == 'dashboard') {
                                                         </a>
                                                     </li>
                                                     <li class="nav-item">
-                                                        <a href="<?= base_url(); ?>Penjualan" class="nav-link <?php echo $penjualan; ?>" style="margin-left: 15px">
-                                                            <i class="fas fa-dollar-sign nav-icon fa-fw"></i>
-                                                            <p>Penjualan</p>
+                                                        <a href="<?= base_url(); ?>Pengeluaran" class="nav-link <?php echo $pengeluaran; ?>" style="margin-left: 15px">
+                                                            <i class="fa-solid fa-truck-ramp-box nav-icon"></i>
+                                                            <p>Pengeluaran</p>
                                                         </a>
                                                     </li>
                                                 </ul>
                                             </li>
+                                            
                                             <li class="nav-item">
                                                 <a href="#" class="nav-link">
-                                                    <i class="nav-icon fas fa-copy"></i>
+                                                    <i class="fa-solid nav-icon fa-magnifying-glass-location"></i>
                                                     <p>
-                                                        Report
+                                                        Lacak
                                                         <i class="fas fa-angle-right right"></i>
                                                     </p>
                                                 </a>
                                                 <ul class="nav nav-treeview">
                                                     <li class="nav-item">
                                                         <a href="pages/layout/top-nav.html" class="nav-link" style="margin-left: 15px">
-                                                            <i class="far fa-circle nav-icon"></i>
-                                                            <p>Top Navigation</p>
-                                                        </a>
-                                                    </li>
-                                                    <li class="nav-item">
-                                                        <a href="pages/layout/top-nav-sidebar.html" class="nav-link" style="margin-left: 15px">
-                                                            <i class="far fa-circle nav-icon"></i>
-                                                            <p>Top Navigation + Sidebar</p>
+                                                            <i class="fa-solid fa-cart-shopping"></i>
+                                                            <p>Lacak Barang</p>
                                                         </a>
                                                     </li>
                                                 </ul>
@@ -213,6 +208,12 @@ if ($active == 'dashboard') {
                                                         <a class="nav-link <?php echo $pengguna; ?>" style="margin-left: 15px" href="<?= base_url('user') ?>">
                                                             <i class="fas fa-2xs fa-users nav-icon"></i>
                                                             <p>Pengguna</p>
+                                                        </a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a href="pages/layout/top-nav.html" class="nav-link" style="margin-left: 15px">
+                                                            <i class="fas fa-trash-can nav-icon"></i>
+                                                            <p>Trash</p>
                                                         </a>
                                                     </li>
                                                 </ul>

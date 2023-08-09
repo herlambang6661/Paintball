@@ -29,13 +29,13 @@
                                 <div class="container-fluid">
                                     <div class="row mb-2">
                                         <div class="col-sm-6">
-                                            <h1 class="m-0"><i class="fas fa-dollar nav-icon fa-fw"></i> Penjualan Barang</h1>
+                                            <h1 class="m-0"><i class="fa-solid fa-truck-ramp-box"></i> Pengeluaran Barang</h1>
                                         </div><!-- /.col -->
                                         <div class="col-sm-6">
                                             <ol class="breadcrumb float-sm-right">
                                                 <li class="breadcrumb-item"><a href="<?= base_url(); ?>Dashboard"><i class="nav-icon fas fa-tachometer-alt"></i> Dashboard</a></li>
                                                 <li class="breadcrumb-item active"><i class="nav-icon fas fa-box"></i> Barang</li>
-                                                <li class="breadcrumb-item active"><i class="fas fa-dollar nav-icon fa-fw"></i> Penjualan Barang</li>
+                                                <li class="breadcrumb-item active"><i class="fa-solid fa-truck-ramp-box"></i> Pengeluaran Barang</li>
                                             </ol>
                                         </div><!-- /.col -->
                                     </div><!-- /.row -->
@@ -57,17 +57,17 @@
                                                                 <div class="card-header p-0 border-bottom-0">
                                                                     <ul class="nav nav-tabs" id="custom-tabs-four-tab" role="tablist">
                                                                         <li class="nav-item">
-                                                                            <a class="nav-link active" id="custom-tabs-four-1-tab" data-toggle="pill" href="#custom-tabs-four-1" role="tab" aria-controls="custom-tabs-four-1" aria-selected="false"><i class="fa-solid fa-list-ul"></i> List Penjualan</a>
+                                                                            <a class="nav-link" id="custom-tabs-four-1-tab" data-toggle="pill" href="#custom-tabs-four-1" role="tab" aria-controls="custom-tabs-four-1" aria-selected="false"><i class="fa-solid fa-list-ul"></i> List Pengeluaran</a>
                                                                         </li>
                                                                         <li class="nav-item">
-                                                                            <a class="nav-link" id="custom-tabs-four-2-tab" data-toggle="pill" href="#custom-tabs-four-2" role="tab" aria-controls="custom-tabs-four-2" aria-selected="false"><i class="fa-solid fa-dollar"></i> Tambah Penjualan</a>
+                                                                            <a class="nav-link active" id="custom-tabs-four-2-tab" data-toggle="pill" href="#custom-tabs-four-2" role="tab" aria-controls="custom-tabs-four-2" aria-selected="false"><i class="fa-solid fa-truck-ramp-box"></i> Tambah Pengeluaran</a>
                                                                         </li>
                                                                     </ul>
                                                                 </div>
                                                                 <div class="card-body">
                                                                     <div class="tab-content" id="custom-tabs-four-tabContent">
                                                                         <!-- panel 1 -->
-                                                                            <div class="tab-pane fade active show" id="custom-tabs-four-1" role="tabpanel" aria-labelledby="custom-tabs-four-1-tab">
+                                                                            <div class="tab-pane fade" id="custom-tabs-four-1" role="tabpanel" aria-labelledby="custom-tabs-four-1-tab">
                                                                                 <section class="content">
                                                                                     <div class="container-fluid">
                                                                                         <div class="row">
@@ -99,13 +99,13 @@
                                                                             </div>
                                                                         <!-- panel 1 -->
                                                                         <!-- panel 2 -->
-                                                                            <div class="tab-pane fade" id="custom-tabs-four-2" role="tabpanel" aria-labelledby="custom-tabs-four-2-tab">
+                                                                            <div class="tab-pane fade active show" id="custom-tabs-four-2" role="tabpanel" aria-labelledby="custom-tabs-four-2-tab">
                                                                                 <div class="row">
                                                                                     <div class="col">
                                                                                         <div class="card">
                                                                                             <div class="card-body">
                                                                                                 <div class="mb-3">
-                                                                                                    <label for="" class="form-label">Nomor Form</label>
+                                                                                                    <label for="" class="form-label">Nomor Form Keluar</label>
                                                                                                     <input type="text" readonly class="form-control form-control-sm" placeholder="" aria-describedby="helpId" value="<?php echo $kodeBarang; ?>">
                                                                                                 </div>
                                                                                                 <div class="mb-3">
@@ -113,12 +113,24 @@
                                                                                                     <input type="date" name="tanggal" id="" class="form-control form-control-sm" placeholder="" aria-describedby="helpId" value="<?php echo date('Y-m-d');?>">
                                                                                                 </div>
                                                                                                 <div class="mb-3">
-                                                                                                    <button type="button" class="btn btn-sm btn-primary" onclick="tambahItem(); return false;"><i class="fas fa-plus-circle"></i> Tambah Barang</button>
+                                                                                                    <label for="" class="form-label">Pilih Barang</label>
+                                                                                                    <div class="d-inline"><select class="caribarang" class="form-control form-control-sm" style="width:100%"></select></div>
                                                                                                 </div>
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="col-lg-9">
+                                                                                        <div class="card">
+                                                                                            <div class="card-body">
+                                                                                                <div class="mb-3">
+                                                                                                    <div class="col-lg-5">
+                                                                                                        <!-- <div class="d-inline"><button type="button" class="btn btn-sm btn-primary"><i class="fa fa-check" aria-hidden="true"></i></button></div> -->
+                                                                                                        <div id="tunggu"></div>
+                                                                                                        <div id="resCarBar"></div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
                                                                                     </div>
                                                                                 </div>
                                                                                 
@@ -126,13 +138,13 @@
                                                                                 <table id="detail_transaksi" class="table table-sm control-group text-nowrap" border="1" style="width: 100%;text-align:center;font-weight: bold;">
                                                                                     <thead>
                                                                                         <td style="border-left-color:#FFFFFF;border-top-color:#FFFFFF;border-bottom-color:#FFFFFF;" width="5%"></td>
-                                                                                        <td style="border-color:black" class="bg-gradient-primary text-white" width="20%">Nama</td>
-                                                                                        <td style="border-color:black" class="bg-gradient-primary text-white" width="10%">Qty</td>
-                                                                                        <td style="border-color:black" class="bg-gradient-primary text-white" width="10%">Satuan</td>
-                                                                                        <td style="border-color:black" class="bg-gradient-primary text-white" width="10%">Harga</td>
-                                                                                        <td style="border-color:black" class="bg-gradient-primary text-white" width="10%">Kurs</td>
-                                                                                        <td style="border-color:black" class="bg-gradient-primary text-white" width="10%">Trucking</td>
-                                                                                        <td style="border-color:black" class="bg-gradient-primary text-white" width="10%">Bea Cukai</td>
+                                                                                        <td style="border-color:black" class="bg-gradient-success text-white" width="20%">Nama</td>
+                                                                                        <td style="border-color:black" class="bg-gradient-success text-white" width="10%">Qty</td>
+                                                                                        <td style="border-color:black" class="bg-gradient-success text-white" width="10%">Satuan</td>
+                                                                                        <td style="border-color:black" class="bg-gradient-success text-white" width="10%">Harga</td>
+                                                                                        <td style="border-color:black" class="bg-gradient-success text-white" width="10%">Kurs</td>
+                                                                                        <td style="border-color:black" class="bg-gradient-success text-white" width="10%">Trucking</td>
+                                                                                        <td style="border-color:black" class="bg-gradient-success text-white" width="10%">Bea Cukai</td>
                                                                                     </thead>
                                                                                 </table>
                                                                                 <div class="row">
@@ -145,7 +157,7 @@
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
-                                                                                <button type="button" class="btn btn-success" onclick="simpandata();"><i class="fas fa-save"></i> Simpan</button>
+                                                                                <button type="button" class="btn btn-info" onclick=""><i class="fas fa-save"></i> Simpan</button>
                                                                             </div>
                                                                         <!-- panel 2 -->
                                                                     </div>
@@ -196,8 +208,17 @@
     <script src="<?= base_url(); ?>assets/select2-4.1.0/dist/js/select2.full.min.js"></script>
     <!-- Library Footer -->
     <script>
-
-        function tambahItem() {
+        
+        $(document).on('click', '.tambahkebawah', function() {
+            var qty_atas = $(this).data('qty');
+            var satuan_atas = $(this).data('satuan');
+            var harga_atas = $(this).data('harga');
+            var kurs_atas = $(this).data('kurs');
+            var trucking_atas = $(this).data('trucking');
+            var beacukai_atas = $(this).data('beacukai');
+            
+            var namabrg_atas = $(this).data('namabrg');
+            var idbrg_atas = $(this).data('idbrg');
             
             var idf = document.getElementById("idf").value;
 
@@ -215,37 +236,37 @@
 
             // Kolom 2 Nama Barang
             var td = document.createElement("td");
-            td.innerHTML += '<select name="namabarang[]" class="form-control form-control-sm elementbrn inputNone" style="width:100%"><option></option></select>';
+            td.innerHTML += '<select name="namabarang[]" class="form-control form-control-sm elementbrn inputNone" style="width:100%"><option value="'+idbrg_atas+'" selected="selected">('+idbrg_atas+') ' +namabrg_atas+'</option></select>';
             tr.appendChild(td);
 
             // Kolom 3 Qty
             var td = document.createElement("td");
-            td.innerHTML += "<input type='number' name='qty[]' id='qty_"+idf+"' class='form-control form-control-sm inputNone' style='border-color:black;text-transform: uppercase;'>";
+            td.innerHTML += "<input type='text' name='qty[]' value='"+qty_atas+"' id='qty_"+idf+"' class='form-control form-control-sm inputNone' style='border-color:black;text-transform: uppercase;'>";
             tr.appendChild(td);
 
             // Kolom 4 Satuan
             var td = document.createElement("td");
-            td.innerHTML += "<input type='text' name='satuan[]' id='satuan_"+idf+"' class='form-control form-control-sm inputNone' style='border-color:black;text-transform: uppercase;'>";
+            td.innerHTML += "<input type='text' name='satuan[]' value='"+satuan_atas+"' id='satuan_"+idf+"' class='form-control form-control-sm inputNone' style='border-color:black;text-transform: uppercase;'>";
             tr.appendChild(td);
 
             // Kolom 5 Harga
             var td = document.createElement("td");
-            td.innerHTML += "<input type='number' name='harga[]' id='harga_"+idf+"' class='form-control form-control-sm inputNone' style='border-color:black;text-transform: uppercase;'>";
+            td.innerHTML += "<input type='number' name='harga[]' value='"+harga_atas+"' id='harga_"+idf+"' class='form-control form-control-sm inputNone' style='border-color:black;text-transform: uppercase;'>";
             tr.appendChild(td);
 
             // Kolom 6 Kurs
             var td = document.createElement("td");
-            td.innerHTML += "<input type='number' name='kurs[]' id='kurs_"+idf+"' class='form-control form-control-sm inputNone' style='border-color:black;text-transform: uppercase;'>";
+            td.innerHTML += "<input type='number' name='kurs[]' value='"+kurs_atas+"' id='kurs_"+idf+"' class='form-control form-control-sm inputNone' style='border-color:black;text-transform: uppercase;'>";
             tr.appendChild(td);
 
             // Kolom 6 Trucking
             var td = document.createElement("td");
-            td.innerHTML += "<input type='number' name='trucking[]' id='trucking_"+idf+"' class='form-control form-control-sm inputNone' style='border-color:black;text-transform: uppercase;'>";
+            td.innerHTML += "<input type='number' name='trucking[]' value='"+kurs_atas+"' id='trucking_"+idf+"' class='form-control form-control-sm inputNone' style='border-color:black;text-transform: uppercase;'>";
             tr.appendChild(td);
 
             // Kolom 6 Bea Cukai
             var td = document.createElement("td");
-            td.innerHTML += "<input type='number' name='beacukai[]' id='beacukai_"+idf+"' class='form-control form-control-sm inputNone' style='border-color:black;text-transform: uppercase;'>";
+            td.innerHTML += "<input type='number' name='beacukai[]' value='"+beacukai_atas+"' id='beacukai_"+idf+"' class='form-control form-control-sm inputNone' style='border-color:black;text-transform: uppercase;'>";
             tr.appendChild(td);
 
             detail_transaksi.appendChild(tr);
@@ -274,7 +295,84 @@
                     cache: true
                 },
             });
-        }
+        });
+        // function tambahItem() {
+            
+        //     var idf = document.getElementById("idf").value;
+        //     var detail_transaksi = document.getElementById("detail_transaksi");
+            
+        //     var tr = document.createElement("tr");
+        //     tr.setAttribute("id", "btn-remove"+idf);
+
+        //     // Kolom 1 Hapus
+        //     var td = document.createElement("td");
+        //     td.setAttribute("align","center");
+        //     td.setAttribute("style", "border-left-color:#FFFFFF;border-top-color:#FFFFFF;border-bottom-color:#FFFFFF;");
+        //     td.innerHTML += '<button class="btn btn-danger btn-sm remove" type="button" onclick="hapusElemen('+idf+');"><i class="fa-regular fa-trash-can"></i> </button>';
+        //     tr.appendChild(td);
+
+        //     // Kolom 2 Nama Barang
+        //     var td = document.createElement("td");
+        //     td.innerHTML += '<select name="namabarang[]" class="form-control form-control-sm elementbrn inputNone" style="width:100%"><option></option></select>';
+        //     tr.appendChild(td);
+
+        //     // Kolom 3 Qty
+        //     var td = document.createElement("td");
+        //     td.innerHTML += "<input type='number' name='qty[]' id='qty_"+idf+"' class='form-control form-control-sm inputNone' style='border-color:black;text-transform: uppercase;'>";
+        //     tr.appendChild(td);
+
+        //     // Kolom 4 Satuan
+        //     var td = document.createElement("td");
+        //     td.innerHTML += "<input type='text' name='satuan[]' id='satuan_"+idf+"' class='form-control form-control-sm inputNone' style='border-color:black;text-transform: uppercase;'>";
+        //     tr.appendChild(td);
+
+        //     // Kolom 5 Harga
+        //     var td = document.createElement("td");
+        //     td.innerHTML += "<input type='number' name='harga[]' id='harga_"+idf+"' class='form-control form-control-sm inputNone' style='border-color:black;text-transform: uppercase;'>";
+        //     tr.appendChild(td);
+
+        //     // Kolom 6 Kurs
+        //     var td = document.createElement("td");
+        //     td.innerHTML += "<input type='number' name='kurs[]' id='kurs_"+idf+"' class='form-control form-control-sm inputNone' style='border-color:black;text-transform: uppercase;'>";
+        //     tr.appendChild(td);
+
+        //     // Kolom 6 Trucking
+        //     var td = document.createElement("td");
+        //     td.innerHTML += "<input type='number' name='trucking[]' id='trucking_"+idf+"' class='form-control form-control-sm inputNone' style='border-color:black;text-transform: uppercase;'>";
+        //     tr.appendChild(td);
+
+        //     // Kolom 6 Bea Cukai
+        //     var td = document.createElement("td");
+        //     td.innerHTML += "<input type='number' name='beacukai[]' id='beacukai_"+idf+"' class='form-control form-control-sm inputNone' style='border-color:black;text-transform: uppercase;'>";
+        //     tr.appendChild(td);
+
+        //     detail_transaksi.appendChild(tr);
+            
+        //     idf = (idf - 1) + 2;
+        //     document.getElementById("idf").value = idf;
+            
+        //     $(".elementbrn").select2({
+        //         language: "id",
+        //         placeholder: "Pilih Mesin",
+        //         ajax: {
+        //             url: "<?= base_url(); ?>/Kedatangan/getBarang",
+        //             type: "post",
+        //             dataType: 'json',
+        //             delay: 250,
+        //             data: function (params) {
+        //                 return {
+        //                     searchTerm: params.term // search term
+        //                 };
+        //             },
+        //             processResults: function (response) {
+        //                 return {
+        //                     results: response
+        //                 };
+        //             },
+        //             cache: true
+        //         },
+        //     });
+        // }
         function hapusElemen(idf) {
             // $(idf).remove();
             $("#btn-remove"+idf).remove();
@@ -523,6 +621,51 @@
                     }
 
                 })
+            });
+        });
+        $(document).ready(function() {
+            // $('.js-example-basic-single').select2();
+            
+            $(".caribarang").select2({
+                language: "id",
+                placeholder: "Pilih Barang",
+                theme: "classic",
+                ajax: {
+                    url: "<?= base_url(); ?>/Kedatangan/getBarang",
+                    type: "post",
+                    dataType: 'json',
+                    delay: 250,
+                    data: function (params) {
+                        return {
+                            searchTerm: params.term // search term
+                        };
+                    },
+                    processResults: function (response) {
+                        return {
+                            results: response
+                        };
+                    },
+                    cache: true
+                },
+            });
+            $('.caribarang').on('select2:select', function (e) {
+                var data = e.params.data;
+                console.log(data.id);
+                
+                $.ajax({
+                    type: "POST",
+                    url: "<?php echo base_url() ?>Pengeluaran/cari",
+                    data:{ keyword: data.id },
+                    beforeSend: function(){
+                        $("#resCarBar").hide();
+                        $("#tunggu").html('<p style="color:green"><blink>tunggu sebentar</blink></p>');
+                    },
+                    success: function(html){
+                        $("#tunggu").html('');
+                        $("#resCarBar").show();
+                        $("#resCarBar").html(html);
+                    }
+                });
             });
         });
     </script>
