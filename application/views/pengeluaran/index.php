@@ -57,24 +57,24 @@
                                                                 <div class="card-header p-0 border-bottom-0">
                                                                     <ul class="nav nav-tabs" id="custom-tabs-four-tab" role="tablist">
                                                                         <li class="nav-item">
-                                                                            <a class="nav-link" id="custom-tabs-four-1-tab" data-toggle="pill" href="#custom-tabs-four-1" role="tab" aria-controls="custom-tabs-four-1" aria-selected="false"><i class="fa-solid fa-list-ul"></i> List Pengeluaran</a>
+                                                                            <a class="nav-link active" id="custom-tabs-four-1-tab" data-toggle="pill" href="#custom-tabs-four-1" role="tab" aria-controls="custom-tabs-four-1" aria-selected="false"><i class="fa-solid fa-list-ul"></i> List Pengeluaran</a>
                                                                         </li>
                                                                         <li class="nav-item">
-                                                                            <a class="nav-link active" id="custom-tabs-four-2-tab" data-toggle="pill" href="#custom-tabs-four-2" role="tab" aria-controls="custom-tabs-four-2" aria-selected="false"><i class="fa-solid fa-truck-ramp-box"></i> Tambah Pengeluaran</a>
+                                                                            <a class="nav-link" id="custom-tabs-four-2-tab" data-toggle="pill" href="#custom-tabs-four-2" role="tab" aria-controls="custom-tabs-four-2" aria-selected="false"><i class="fa-solid fa-truck-ramp-box"></i> Tambah Pengeluaran</a>
                                                                         </li>
                                                                     </ul>
                                                                 </div>
                                                                 <div class="card-body">
                                                                     <div class="tab-content" id="custom-tabs-four-tabContent">
                                                                         <!-- panel 1 -->
-                                                                            <div class="tab-pane fade" id="custom-tabs-four-1" role="tabpanel" aria-labelledby="custom-tabs-four-1-tab">
+                                                                            <div class="tab-pane fade active show" id="custom-tabs-four-1" role="tabpanel" aria-labelledby="custom-tabs-four-1-tab">
                                                                                 <section class="content">
                                                                                     <div class="container-fluid">
                                                                                         <div class="row">
                                                                                             <div class="col-lg-12 col-12">
                                                                                                 <div class="table-responsive">
-                                                                                                    <table id="kedatanganlist" class="table table-sm table-bordered table-hover text-nowrap" width="100%">
-                                                                                                        <thead class="bg-navy">
+                                                                                                    <table id="pengeluaranlist" class="table table-sm table-bordered table-hover text-nowrap" width="100%">
+                                                                                                        <thead class="bg-green">
                                                                                                             <tr>
                                                                                                                 <th width="5%">Id</th>
                                                                                                                 <th width="8%">No Form</th>
@@ -99,7 +99,7 @@
                                                                             </div>
                                                                         <!-- panel 1 -->
                                                                         <!-- panel 2 -->
-                                                                            <div class="tab-pane fade active show" id="custom-tabs-four-2" role="tabpanel" aria-labelledby="custom-tabs-four-2-tab">
+                                                                            <div class="tab-pane fade" id="custom-tabs-four-2" role="tabpanel" aria-labelledby="custom-tabs-four-2-tab">
                                                                                 <div class="row">
                                                                                     <div class="col">
                                                                                         <div class="card">
@@ -157,7 +157,7 @@
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
-                                                                                <button type="button" class="btn btn-info" onclick=""><i class="fas fa-save"></i> Simpan</button>
+                                                                                <button type="button" class="btn btn-info" onclick="simpandata()"><i class="fas fa-save"></i> Simpan</button>
                                                                             </div>
                                                                         <!-- panel 2 -->
                                                                     </div>
@@ -246,27 +246,27 @@
 
             // Kolom 4 Satuan
             var td = document.createElement("td");
-            td.innerHTML += "<input type='text' name='satuan[]' value='"+satuan_atas+"' id='satuan_"+idf+"' class='form-control form-control-sm inputNone' style='border-color:black;text-transform: uppercase;'>";
+            td.innerHTML += "<input type='text' readonly name='satuan[]' value='"+satuan_atas+"' id='satuan_"+idf+"' class='form-control form-control-sm inputNone' style='border-color:black;text-transform: uppercase;'>";
             tr.appendChild(td);
 
             // Kolom 5 Harga
             var td = document.createElement("td");
-            td.innerHTML += "<input type='number' name='harga[]' value='"+harga_atas+"' id='harga_"+idf+"' class='form-control form-control-sm inputNone' style='border-color:black;text-transform: uppercase;'>";
+            td.innerHTML += "<input type='number' readonly name='harga[]' value='"+harga_atas+"' id='harga_"+idf+"' class='form-control form-control-sm inputNone' style='border-color:black;text-transform: uppercase;'>";
             tr.appendChild(td);
 
             // Kolom 6 Kurs
             var td = document.createElement("td");
-            td.innerHTML += "<input type='number' name='kurs[]' value='"+kurs_atas+"' id='kurs_"+idf+"' class='form-control form-control-sm inputNone' style='border-color:black;text-transform: uppercase;'>";
+            td.innerHTML += "<input type='number' readonly name='kurs[]' value='"+kurs_atas+"' id='kurs_"+idf+"' class='form-control form-control-sm inputNone' style='border-color:black;text-transform: uppercase;'>";
             tr.appendChild(td);
 
             // Kolom 6 Trucking
             var td = document.createElement("td");
-            td.innerHTML += "<input type='number' name='trucking[]' value='"+kurs_atas+"' id='trucking_"+idf+"' class='form-control form-control-sm inputNone' style='border-color:black;text-transform: uppercase;'>";
+            td.innerHTML += "<input type='number' readonly name='trucking[]' value='"+kurs_atas+"' id='trucking_"+idf+"' class='form-control form-control-sm inputNone' style='border-color:black;text-transform: uppercase;'>";
             tr.appendChild(td);
 
             // Kolom 6 Bea Cukai
             var td = document.createElement("td");
-            td.innerHTML += "<input type='number' name='beacukai[]' value='"+beacukai_atas+"' id='beacukai_"+idf+"' class='form-control form-control-sm inputNone' style='border-color:black;text-transform: uppercase;'>";
+            td.innerHTML += "<input type='number' readonly name='beacukai[]' value='"+beacukai_atas+"' id='beacukai_"+idf+"' class='form-control form-control-sm inputNone' style='border-color:black;text-transform: uppercase;'>";
             tr.appendChild(td);
 
             detail_transaksi.appendChild(tr);
@@ -381,7 +381,7 @@
         function simpandata() {
             var str     = $("form#add-form").serialize();
             $.ajax({
-                url: "<?= base_url() ?>Kedatangan/kedatangansave",
+                url: "<?= base_url() ?>Pengeluaran/pengeluaransave",
                 type: "POST",
                 data: str,       
                 // type: "POST",
@@ -417,7 +417,7 @@
                                 },
                             })
                             .then(function() {
-                                window.location.href = "<?php echo base_url() ?>Kedatangan";
+                                window.location.href = "<?php echo base_url() ?>Pengeluaran";
                             });
                     } else {
                         Swal.fire({
@@ -466,7 +466,7 @@
                 ]
             });
 
-            $('#kedatanganlist').dataTable({
+            $('#pengeluaranlist').dataTable({
                 "lengthChange": true,
                 "paging": true,
                 "processing": true,
@@ -502,7 +502,7 @@
                     }
                 ],
                 "ajax": {
-                    "url": "<?= base_url(); ?>Kedatangan/getKedatanganDatatables",
+                    "url": "<?= base_url(); ?>pengeluaran/getPengeluaranDatatables",
                     "cache": "false",
                     cache: false,
                     "type": "POST",
@@ -540,7 +540,7 @@
             });
 
             function filterGlobal(v) {
-                $('#kedatanganlist').DataTable().search(
+                $('#pengeluaranlist').DataTable().search(
                     v,
                     false,
                     false
@@ -551,10 +551,10 @@
                 filterGlobal(v);
             });
             $('input.column_filter').on('keyup click', function() {
-                $('#kedatanganlist').DataTable().ajax.reload();
+                $('#pengeluaranlist').DataTable().ajax.reload();
             });
             
-            $('#kedatanganlist').on('click', '.remove', function() {
+            $('#pengeluaranlist').on('click', '.remove', function() {
                 var id = $(this).data('id');
                 var kode = $(this).data('kode');
                 var nama = $(this).data('nama');
@@ -571,7 +571,7 @@
                 }).then((result) => {
                     if (result.value) {
                         $.ajax({
-                                url: '<?= base_url() ?>Barang/delete',
+                                url: '<?= base_url() ?>Barang/',
                                 type: 'POST',
                                 data: {
                                     id: id,
