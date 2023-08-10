@@ -29,13 +29,13 @@
                                 <div class="container-fluid">
                                     <div class="row mb-2">
                                         <div class="col-sm-6">
-                                            <h1 class="m-0"><i class="fa-solid fa-truck-ramp-box"></i> Pengeluaran Barang</h1>
+                                            <h1 class="m-0"><i class="fa-solid fa-cart-shopping"></i> Lacak Barang</h1>
                                         </div><!-- /.col -->
                                         <div class="col-sm-6">
                                             <ol class="breadcrumb float-sm-right">
                                                 <li class="breadcrumb-item"><a href="<?= base_url(); ?>Dashboard"><i class="nav-icon fas fa-tachometer-alt"></i> Dashboard</a></li>
                                                 <li class="breadcrumb-item active"><i class="nav-icon fas fa-box"></i> Barang</li>
-                                                <li class="breadcrumb-item active"><i class="fa-solid fa-truck-ramp-box"></i> Pengeluaran Barang</li>
+                                                <li class="breadcrumb-item active"><i class="fa-solid fa-cart-shopping"></i> Lacak Barang</li>
                                             </ol>
                                         </div><!-- /.col -->
                                     </div><!-- /.row -->
@@ -57,7 +57,7 @@
                                                                 <div class="card-header p-0 border-bottom-0">
                                                                     <ul class="nav nav-tabs" id="custom-tabs-four-tab" role="tablist">
                                                                         <li class="nav-item">
-                                                                            <a class="nav-link active" id="custom-tabs-four-1-tab" data-toggle="pill" href="#custom-tabs-four-1" role="tab" aria-controls="custom-tabs-four-1" aria-selected="false"><i class="fa-solid fa-list-ul"></i> List Pengeluaran</a>
+                                                                            <a class="nav-link active" id="custom-tabs-four-1-tab" data-toggle="pill" href="#custom-tabs-four-1" role="tab" aria-controls="custom-tabs-four-1" aria-selected="false"><i class="fa-solid fa-list-ul"></i> List Barang</a>
                                                                         </li>
                                                                         <li class="nav-item">
                                                                             <a class="nav-link" id="custom-tabs-four-2-tab" data-toggle="pill" href="#custom-tabs-four-2" role="tab" aria-controls="custom-tabs-four-2" aria-selected="false"><i class="fa-solid fa-truck-ramp-box"></i> Tambah Pengeluaran</a>

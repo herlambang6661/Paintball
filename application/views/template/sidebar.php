@@ -10,6 +10,8 @@ if ($active == 'dashboard') {
     $kedatangan = '';
     $pengeluaran = ''; 
     $pengguna = '';
+    $lacak = '';
+    $mlacak = '';
 } elseif ($active == 'kedatangan') {
     $mbarang = 'menu-open';
     $mpengaturan = '';
@@ -21,6 +23,8 @@ if ($active == 'dashboard') {
     $mdashboard = '';
     $pengeluaran = '';
     $pengguna = '';
+    $lacak = '';
+    $mlacak = '';
 } elseif ($active == 'listbarang') {
     $mbarang = 'menu-open';
     $mpengaturan = '';
@@ -32,6 +36,8 @@ if ($active == 'dashboard') {
     $mdashboard = '';
     $pengeluaran = '';
     $pengguna = '';
+    $lacak = '';
+    $mlacak = '';
 } elseif ($active == 'stock') {
     $mbarang = 'menu-open';
     $mpengaturan = '';
@@ -43,6 +49,8 @@ if ($active == 'dashboard') {
     $mdashboard = '';
     $pengeluaran = '';
     $pengguna = '';
+    $lacak = '';
+    $mlacak = '';
 } elseif ($active == 'pengeluaran') {
     $mbarang = 'menu-open';
     $mpengaturan = '';
@@ -54,6 +62,8 @@ if ($active == 'dashboard') {
     $mdashboard = '';
     $pengeluaran = 'active';
     $pengguna = '';
+    $lacak = '';
+    $mlacak = '';
 } elseif ($active == 'pengguna') {
     $mbarang = '';
     $mpengaturan = 'menu-open';
@@ -65,6 +75,21 @@ if ($active == 'dashboard') {
     $mdashboard = '';
     $pengeluaran = '';
     $pengguna = 'active';
+    $lacak = '';
+    $mlacak = '';
+} elseif ($active == 'lacak') {
+    $mbarang = '';
+    $mpengaturan = '';
+    $stock = '';
+    $listbarang = '';
+    $mdaftar = '';
+    $kedatangan = '';
+    $dashboard = '';
+    $mdashboard = '';
+    $pengeluaran = '';
+    $pengguna = '';
+    $lacak = 'active';
+    $mlacak = 'menu-open';
 } else {
     $mbarang = '';
     $mpengaturan = '';
@@ -74,6 +99,8 @@ if ($active == 'dashboard') {
     $mdashboard = '';
     $mdaftar = '';
     $pengguna = '';
+    $lacak = '';
+    $mlacak = '';
 }
 ?>
                 <!-- Main Sidebar Container -->
@@ -177,7 +204,7 @@ if ($active == 'dashboard') {
                                                 </ul>
                                             </li>
                                             
-                                            <li class="nav-item">
+                                            <li class="nav-item <?php echo $mlacak; ?>">
                                                 <a href="#" class="nav-link">
                                                     <i class="fa-solid nav-icon fa-magnifying-glass-location"></i>
                                                     <p>
@@ -187,7 +214,7 @@ if ($active == 'dashboard') {
                                                 </a>
                                                 <ul class="nav nav-treeview">
                                                     <li class="nav-item">
-                                                        <a href="pages/layout/top-nav.html" class="nav-link" style="margin-left: 15px">
+                                                        <a href="<?= base_url(); ?>Lacak" class="nav-link <?php echo $lacak; ?>" style="margin-left: 15px">
                                                             <i class="fa-solid fa-cart-shopping"></i>
                                                             <p>Lacak Barang</p>
                                                         </a>
@@ -195,7 +222,7 @@ if ($active == 'dashboard') {
                                                 </ul>
                                             </li>
                                             
-                                            <li class="nav-item <?php echo $mdashboard; ?>">
+                                            <li class="nav-item <?php echo $mpengaturan; ?>">
                                                 <a href="#" class="nav-link">
                                                     <i class="nav-icon fas fa-wrench"></i>
                                                     <p>

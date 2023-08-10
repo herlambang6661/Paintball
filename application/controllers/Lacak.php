@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Pengeluaran extends CI_Controller {
+class Lacak extends CI_Controller {
 
     public function __construct() 
     {
@@ -12,7 +12,7 @@ class Pengeluaran extends CI_Controller {
         date_default_timezone_set('Asia/Jakarta');
         // List of Models
         $models = array(
-            'PengeluaranModel' => 'pengeluaran',
+            'lacakModel' => 'pengeluaran',
         );
         // Load Multiple Models
         foreach ($models as $file => $object_name) {
@@ -36,9 +36,9 @@ class Pengeluaran extends CI_Controller {
                 $kodeBarang = "E-" . date('y') . "00001";
             }
         // GET NOFORM
-		$data['active'] = 'pengeluaran';
+		$data['active'] = 'lacak';
 		$data['kodeBarang'] = $kodeBarang;
-		$this->load->view('pengeluaran/index', $data);
+		$this->load->view('lacak/index', $data);
 	}
     
     public function cari()

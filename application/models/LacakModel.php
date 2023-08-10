@@ -1,11 +1,11 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class StockModel extends CI_Model
+class LacakModel extends CI_Model
 {
-    var $column_order = array(null, 'tgl_input', 'kodebarang', 'namabarang');
-    var $column_search = array('tgl_input', 'kodebarang', 'namabarang');
-    var $order = array('nama' => 'DESC');
+    var $column_order = array(null, 'noform', 'kodebarang', 'kode_pengeluaran', 'kodebarang', 'namabarang', 'qty', 'satuan', 'harga', 'kurs', 'trucking', 'bea_cukai');
+    var $column_search = array('noform', 'kodepengeluaran', 'kodebarang', 'namabarang', 'qty', 'satuan', 'harga', 'kurs', 'trucking', 'bea_cukai');
+    var $order = array('namabarang' => 'ASC');
 
     private function getQuery()
     {
@@ -16,9 +16,9 @@ class StockModel extends CI_Model
         //     $this->db->like('unit', $this->input->post('unit'), 'both');
         // }
         
-        $this->db->select('id_stock, st.kodebarang, nama, st.qty');
-        $this->db->from('pb_stock st');
-        $this->db->join('pb_barang br', 'st.kodebarang=br.kodebarang', 'left');
+        $this->db->select('*');
+        $this->db->from('pb_pengeluaran ke');
+        $this->db->join('pb_pengeluaranitm ki', 'ke.noform=ki.form_pengeluaran', 'left');
         $i = 0;
         foreach ($this->column_search as $item) {
             if (!empty($_POST['search']['value'])) {
@@ -40,7 +40,7 @@ class StockModel extends CI_Model
             $this->db->order_by(key($order), $order[key($order)]);
         }
     }
-    public function getStockList()
+    public function getPengeluaranList()
     {
         $this->getQuery();
         if (!empty($_POST['length']) && $_POST['length'] < 1) {
@@ -66,35 +66,54 @@ class StockModel extends CI_Model
         $this->getQuery();
         return $this->db->count_all_results();
     }
-    
-    public function getData($id)
+
+    public function getKode()
     {
-        $this->db->from("pb_stock");
+        $query = $this->db->query("SELECT max(noform) as maxKode FROM pb_pengeluaran WHERE `noform` LIKE '%E-%'");
+        foreach ($query->result_array() as $row) {
+            $m = $row['maxKode'];
+        }
+        return $m;
+    }
+    public function getKodePengeluaran_add()
+    {
+        $query = $this->db->query("SELECT max(kodepengeluaran) as maxKode FROM pb_pengeluaranitm");
+        foreach ($query->result_array() as $row) {
+            $m = $row['maxKode'];
+        }
+        return $m;
+    }
+    public function getBarang($id)
+    {
+        $this->db->select('namabarang');
+        $this->db->from("pb_barang");
         $this->db->where('kodebarang', $id);
         $query = $this->db->get();
-
-        return $query->result();
+        if ($query->num_rows() > 0) {
+            return $query->row()->namabarang;
+        }
+        return $query;
+    }
+    public function save($table, $data)
+    {
+        $result = $this->db->insert($table, $data);
+        
+        if ($result) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
     }
     
-    public function getDataItm($id)
+    public function ambilBarang($id)
     {
-        $this->db->from("pb_kedatanganitm");
-        // $this->db->join('pb_kedatanganitm k', 'b.kodebarang=k.kodebarang', 'left');
-        // $this->db->join('pb_pengeluaranitm p', 'b.kodebarang=p.kodebarang', 'left');
-        $this->db->where('kodebarang', $id);
+        $this->db->select("*");
+        $this->db->from("pb_kedatanganitm ke");
+        $this->db->where("namabarang like '%$id%'");
+        $this->db->or_where("kodebarang like '%$id%'");
+        $this->db->or_where("kodekedatangan like '%$id%'");
+        $this->db->order_by('tgl_kedatanganitm', 'ASC');
         $query = $this->db->get();
-
-        return $query->result();
-    }
-    public function getDataItm2($id)
-    {
-        $this->db->from("pb_pengeluaranitm");
-        // $this->db->join('pb_kedatanganitm k', 'b.kodebarang=k.kodebarang', 'left');
-        // $this->db->join('pb_pengeluaranitm p', 'b.kodebarang=p.kodebarang', 'left');
-        $this->db->where('kodebarang', $id);
-        $query = $this->db->get();
-
         return $query->result();
     }
 }
-?>

@@ -106,7 +106,23 @@ class Stock extends CI_Controller {
                                     <td><?php echo $v->kurs ?></td>
                                     <td><?php echo $v->trucking ?></td>
                                     <td><?php echo $v->bea_cukai ?></td>
-                                    <td><span class="badge rounded-pill bg-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Kedatangan"><i class="fa fa-plus" aria-hidden="true"></i></span></td>
+                                    <td><span class="badge rounded-pill bg-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Kedatangan"><i class="fa fa-arrow-down" aria-hidden="true"></i></span></td>
+                                </tr>
+                            <?php } ?>
+                            <?php 
+                            $data2 = $this->stock->getDataItm2($id);
+                            foreach ($data2 as $v) {?>
+                                <tr class="">
+                                    <td><?php echo $no;$no++ ?></td>
+                                    <td><?php echo $v->tgl_pengeluaranitm ?></td>
+                                    <td><?php echo $v->namabarang ?></td>
+                                    <td><?php echo $v->qty ?></td>
+                                    <td><?php echo $v->satuan ?></td>
+                                    <td><?php echo $v->harga ?></td>
+                                    <td><?php echo $v->kurs ?></td>
+                                    <td><?php echo $v->trucking ?></td>
+                                    <td><?php echo $v->bea_cukai ?></td>
+                                    <td><span class="badge rounded-pill bg-orange" data-bs-toggle="tooltip" data-bs-placement="top" title="Kedatangan"><i class="fa fa-arrow-up text-white" aria-hidden="true"></i></span></td>
                                 </tr>
                             <?php } ?>
                         </tbody>
