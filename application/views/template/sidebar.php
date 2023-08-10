@@ -8,7 +8,7 @@ if ($active == 'dashboard') {
     $mdaftar = '';
     $listbarang = '';
     $kedatangan = '';
-    $penjualan = '';
+    $pengeluaran = '';
     $pengguna = '';
 } elseif ($active == 'kedatangan') {
     $mbarang = 'menu-open';
@@ -19,7 +19,7 @@ if ($active == 'dashboard') {
     $listbarang = '';
     $dashboard = '';
     $mdashboard = '';
-    $penjualan = '';
+    $pengeluaran = '';
     $pengguna = '';
 } elseif ($active == 'listbarang') {
     $mbarang = 'menu-open';
@@ -30,7 +30,7 @@ if ($active == 'dashboard') {
     $kedatangan = '';
     $dashboard = '';
     $mdashboard = '';
-    $penjualan = '';
+    $pengeluaran = '';
     $pengguna = '';
 } elseif ($active == 'stock') {
     $mbarang = 'menu-open';
@@ -41,9 +41,9 @@ if ($active == 'dashboard') {
     $kedatangan = '';
     $dashboard = '';
     $mdashboard = '';
-    $penjualan = '';
+    $pengeluaran = '';
     $pengguna = '';
-} elseif ($active == 'penjualan') {
+} elseif ($active == 'pengeluaran') {
     $mbarang = 'menu-open';
     $mpengaturan = '';
     $stock = '';
@@ -52,7 +52,7 @@ if ($active == 'dashboard') {
     $kedatangan = '';
     $dashboard = '';
     $mdashboard = '';
-    $penjualan = 'active';
+    $pengeluaran = 'active';
     $pengguna = '';
 } elseif ($active == 'pengguna') {
     $mbarang = '';
@@ -63,7 +63,7 @@ if ($active == 'dashboard') {
     $kedatangan = '';
     $dashboard = '';
     $mdashboard = '';
-    $penjualan = '';
+    $pengeluaran = '';
     $pengguna = 'active';
 } else {
     $mbarang = '';
