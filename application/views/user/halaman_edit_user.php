@@ -93,21 +93,11 @@
                             <div class="form-group mb-3">
                                 <label for="akses">Role*</label>
                                 <select class="form-select" aria-label="Data Role" name="akses">
-                                    <option value="admin" <?= ($produk->akses == 'admin') ? 'selected' : '' ?>>administrator</option>
-                                    <option value="supir" <?= ($produk->akses == 'supir') ? 'selected' : '' ?>>supir</option>
+                                    <option value="admin" <?= ($produk->level == 'admin') ? 'selected' : '' ?>>administrator</option>
+                                    <option value="supir" <?= ($produk->level == 'supir') ? 'selected' : '' ?>>supir</option>
                                 </select>
                                 <div class="invalid-feedback">
                                     <?php echo form_error('akses') ?>
-                                </div>
-                            </div>
-                            <div class="form-group mb-3">
-                                <label for="status">Status*</label>
-                                <select class="form-select" aria-label="Data Status" name="status">
-                                    <option value="1" <?= ($produk->status == '1') ? 'selected' : '' ?>>Active</option>
-                                    <option value="0" <?= ($produk->status == '0') ? 'selected' : '' ?>>Inactive</option>
-                                </select>
-                                <div class="invalid-feedback">
-                                    <?php echo form_error('status') ?>
                                 </div>
                             </div>
 

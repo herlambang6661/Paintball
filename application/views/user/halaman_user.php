@@ -78,12 +78,8 @@
                                 <td><?php echo $p->password ?></td>
                                 <td><?php echo $p->level ?></td>
                                 <td><?php echo $p->tmpstp ?></td>
-
                                 <td>
-                                    <?= ($p->level == "1") ? '<span class="badge rounded-pill bg-success">Active</span>' : '<span class="badge rounded-pill bg-danger">Inactive</span>'  ?>
-                                </td>
-                                <td>
-                                    <a href="" class="btn btn-small btn-info"><i class="fas fa-edit"></i> Edit</a>
+                                    <a href="<?php echo site_url('user/edit/' . $p->id_user) ?>" class="btn btn-small btn-info"><i class="fas fa-edit"></i> Edit</a>
                                     <a href="" class="btn btn-small btn-danger"><i class="fas fa-trash"></i> Hapus</a>
                                 </td>
                             </tr>
