@@ -20,6 +20,7 @@ class User extends CI_Controller
             $this->load->model($file, $object_name);
         }
         $this->load->helper(array('form', 'url'));
+        $this->load->model('Muser');
     }
 
     public function index()
@@ -36,7 +37,7 @@ class User extends CI_Controller
         $validation = $this->form_validation;
         $validation->set_rules($product->rules());
 
-        if ($validation->run()) {
+        if ($validation->run()==true) {
             $product->save();
             $this->session->set_flashdata('success', 'User berhasil disimpan');
             $url = base_url('user');
@@ -73,34 +74,6 @@ class User extends CI_Controller
 
         $this->load->view("user/halaman_edit_user", $data);
     }
-
-    public function adds()
-    {
-        // $product = $this->Muser;
-    $nick = filter_input(INPUT_POST, 'nick', FILTER_SANITIZE_STRING);
-    $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
-    // enkripsi password
-    $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
-    $level = filter_input(INPUT_POST, 'level', FILTER_VALIDATE_EMAIL);
-
-    $sql = "INSERT INTO pb_users (nick, username, password, level) 
-            VALUES (:nick, :username, :password, :level)";
-    $stmt = $db->pb_users($sql);
-        $params = array(
-        ":nick" => $nick,
-        ":username" => $username,
-        ":password" => $password,
-        ":level" => $level
-    );
-
-    // eksekusi query untuk menyimpan ke database
-    $saved = $stmt->execute($params);
-
-    
-
-
-    }
-
     public function editDataUser(){
         $id = $_POST['id_user'];
         $nick = $_POST['nick'];
@@ -117,6 +90,31 @@ class User extends CI_Controller
 
         $this->Muser->updateUser($id, $dataUpdate, 'pb_users');
         redirect(site_url('user'));
+
+    }
+
+    public function adds()
+    {
+        $this->form_validation->set_rules('nick', 'nick', 'trim|required|min_length[1]|max_length[255]');
+        $this->form_validation->set_rules('username', 'username','trim|required|min_length[1]|max_length[255]|is_unique[pb_users.username]');
+		$this->form_validation->set_rules('password', 'password','trim|required|min_length[1]|max_length[255]');
+		$this->form_validation->set_rules('level', 'level','trim|required|min_length[1]|max_length[255]');
+		if ($this->form_validation->run()==true)
+	{
+			$username = $this->input->post('username');
+			$password = $this->input->post('password');
+			$nick = $this->input->post('nick');
+			$this->Muser->tambah_user($username,$password,$nick);
+			$this->session->set_flashdata('success_register','Proses Pendaftaran User Berhasil');
+			$url = base_url('user/adds');
+            redirect($url);
+		}
+		else
+		{
+			$this->session->set_flashdata('error', validation_errors());
+			redirect('user');
+		}
+
 
     }
 

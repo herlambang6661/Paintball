@@ -56,11 +56,11 @@
 
                 <div class="card mb-3">
                     <div class="card-header">
-                        <a href="<?= base_url(); ?>User/adds"><i class="fas fa-arrow-left"></i> Kembali</a>
+                        <a href="<?= base_url('user') ?>"><i class="fas fa-arrow-left"></i> Kembali</a>
                     </div>
                     <div class="card-body">
 
-                        <form action="<?php echo site_url('user/add') ?>" method="post" enctype="multipart/form-data">
+                        <form action="<?php echo site_url('user/adds') ?>" method="post" enctype="multipart/form-data">
                             <div class="form-group mb-3">
                                 <label for="nick">Nickname*</label>
                                 <input class="form-control <?php echo form_error('nick') ? 'is-invalid' : '' ?>" type="text" name="nick" />
@@ -69,21 +69,21 @@
                                 </div>
                             </div>
                             <div class="form-group mb-3">
-                                <label for="nama">Username*</label>
-                                <input class="form-control <?php echo form_error('notelp') ? 'is-invalid' : '' ?>" type="text" name="notelp" />
+                                <label for="username">Username*</label>
+                                <input class="form-control <?php echo form_error('username') ? 'is-invalid' : '' ?>" type="text" name="username" />
                                 <div class="invalid-feedback">
-                                    <?php echo form_error('notelp') ?>
+                                    <?php echo form_error('username') ?>
                                 </div>
                             </div>
                             <div class="form-group mb-3">
-                                <label for="nama">Password*</label>
-                                <input class="form-control <?php echo form_error('email') ? 'is-invalid' : '' ?>" type="text" name="email" />
+                                <label for="password">Password*</label>
+                                <input class="form-control <?php echo form_error('username') ? 'is-invalid' : '' ?>" type="text" name="password" />
                                 <div class="invalid-feedback">
-                                    <?php echo form_error('email') ?>
+                                    <?php echo form_error('username') ?>
                                 </div>
                             </div>
                             <div class="form-group mb-3">
-                                <label for="akses">Level*</label>
+                                <label for="level">Level*</label>
                                 <select class="form-control" aria-label="Data Role" name="level">
                                     <option value="Admin">Admin</option>
                                     <option value="User">supir</option>
