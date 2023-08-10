@@ -8,7 +8,7 @@ if ($active == 'dashboard') {
     $mdaftar = '';
     $listbarang = '';
     $kedatangan = '';
-    $pengeluaran = '';
+    $pengeluaran = ''; 
     $pengguna = '';
 } elseif ($active == 'kedatangan') {
     $mbarang = 'menu-open';
