@@ -100,9 +100,13 @@ class Muser extends CI_Model
         $this->db->update($table, $data);
     }
 
-    public function tambah_user()
-    {
-        $this->db->where('id_user', $id);
-        $this->db->save();
-    }
+    function tambah_user($username,$password,$nick)
+	{
+		$data_user = array(
+			'username'=>$username,
+			'password'=>password_hash($password,PASSWORD_DEFAULT),
+			'nick'=>$nick
+		);
+		$this->db->insert('pb_users',$data_user);
+	}
 }
