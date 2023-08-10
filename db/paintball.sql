@@ -11,7 +11,7 @@
  Target Server Version : 100427
  File Encoding         : 65001
 
- Date: 09/08/2023 13:47:01
+ Date: 10/08/2023 10:23:27
 */
 
 SET NAMES utf8mb4;
@@ -92,6 +92,54 @@ INSERT INTO `pb_kedatanganitm` VALUES (7, '2023-08-09', 'K-2300002', 'D-00002', 
 INSERT INTO `pb_kedatanganitm` VALUES (8, '2023-08-09', 'K-2300003', 'D-00003', 'B-00002', 'Saos', 1, '1', 1, 1, 1, 1, 'Admin', '2023-08-09 12:53:37');
 INSERT INTO `pb_kedatanganitm` VALUES (9, '2023-08-09', 'K-2300004', 'D-00004', 'B-00004', 'Baso', 100, 'PCS', 15000, 0, 0, 10000, 'Admin', '2023-08-09 13:15:02');
 INSERT INTO `pb_kedatanganitm` VALUES (10, '2023-08-08', 'K-2300005', 'D-00005', 'B-00004', 'Baso', 9, 'pcs', 10000, 0, 0, 10000, 'Admin', '2023-08-09 13:15:53');
+
+-- ----------------------------
+-- Table structure for pb_pengeluaran
+-- ----------------------------
+DROP TABLE IF EXISTS `pb_pengeluaran`;
+CREATE TABLE `pb_pengeluaran`  (
+  `id_pengeluaran` int NOT NULL AUTO_INCREMENT,
+  `tgl` date NULL DEFAULT NULL,
+  `noform` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `keterangan` longtext CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `dibuat` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `tmpstp` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id_pengeluaran`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of pb_pengeluaran
+-- ----------------------------
+INSERT INTO `pb_pengeluaran` VALUES (1, '2023-08-10', 'E-2300001', '', 'Admin', NULL);
+
+-- ----------------------------
+-- Table structure for pb_pengeluaranitm
+-- ----------------------------
+DROP TABLE IF EXISTS `pb_pengeluaranitm`;
+CREATE TABLE `pb_pengeluaranitm`  (
+  `id_pengeluaranitm` int NOT NULL AUTO_INCREMENT,
+  `tgl_pengeluaranitm` date NULL DEFAULT NULL,
+  `form_pengeluaran` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `kodepengeluaran` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `kodebarang` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `namabarang` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `qty` float NULL DEFAULT NULL,
+  `satuan` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `harga` float NULL DEFAULT NULL,
+  `kurs` float NULL DEFAULT NULL,
+  `trucking` float NULL DEFAULT NULL,
+  `bea_cukai` float NULL DEFAULT NULL,
+  `ekspedisi` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `status` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `dibuat` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `tmpstp` timestamp NULL DEFAULT current_timestamp,
+  PRIMARY KEY (`id_pengeluaranitm`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of pb_pengeluaranitm
+-- ----------------------------
+INSERT INTO `pb_pengeluaranitm` VALUES (11, '2023-08-10', 'E-2300001', 'F-00001', 'B-00001', 'Kecap', 1, 'pcs', 10000, 0, 0, 10000, NULL, NULL, 'Admin', '2023-08-10 09:18:52');
 
 -- ----------------------------
 -- Table structure for pb_stock
