@@ -45,49 +45,61 @@
 
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1 class="h2">List User</h1>
-                    <div class="btn-toolbar mb-2 mb-md-0">
-                        <a href=<?php echo site_url('User/adds') ?> class="btn btn-sm btn-outline-secondary" role="button" aria-pressed="true">Tambah User</a>
-                    </div>
+                    <h1 class="h2">Tambah User</h1>
+
                 </div>
                 <?php if ($this->session->flashdata('success')) : ?>
                     <div class="alert alert-success" role="alert">
                         <?php echo $this->session->flashdata('success'); ?>
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" style="float: right;"></button>
                     </div>
                 <?php endif; ?>
-                <table id="example" class="table table-striped" style="width:100%">
-                    <thead>
-                        <tr>
-                            <th style="width: 15%;">ID User</th>
-                            <th style="width: 10%;">Nickname</th>
-                            <th style="width: 15%;">Username</th>
-                            <th style="width: 10%;">Password</th>
-                            <th style="width: 5%;">Level</th>
-                            <th>Time</th>
-                        </tr>
-                    </thead>
-                    <tbody>
 
-                        <?php $i = 1;
-                        foreach ($produk as $p) : ?>
-                            <tr>
-                                <td><?php echo $p->id_user ?></td>
-                                <td><?php echo $p->nick ?></td>
-                                <td><?php echo $p->username ?></td>
-                                <td><?php echo $p->password ?></td>
-                                <td><?php echo $p->level ?></td>
-                                <td><?php echo $p->tmpstp ?></td>
-                                <td>
-                                    <a href="<?php echo site_url('user/edit/' . $p->id_user) ?>" class="btn btn-small btn-info"><i class="fas fa-edit"></i> Edit</a>
-                                    <a href="" class="btn btn-small btn-danger"><i class="fas fa-trash"></i> Hapus</a>
-                                </td>
-                            </tr>
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <a href="<?= base_url(); ?>User/adds"><i class="fas fa-arrow-left"></i> Kembali</a>
+                    </div>
+                    <div class="card-body">
 
-                        <?php endforeach; ?>
-                    </tbody>
-                </table>
+                        <form action="<?php echo site_url('user/add') ?>" method="post" enctype="multipart/form-data">
+                            <div class="form-group mb-3">
+                                <label for="nick">Nickname*</label>
+                                <input class="form-control <?php echo form_error('nick') ? 'is-invalid' : '' ?>" type="text" name="nick" />
+                                <div class="invalid-feedback">
+                                    <?php echo form_error('nick') ?>
+                                </div>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="nama">Username*</label>
+                                <input class="form-control <?php echo form_error('notelp') ? 'is-invalid' : '' ?>" type="text" name="notelp" />
+                                <div class="invalid-feedback">
+                                    <?php echo form_error('notelp') ?>
+                                </div>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="nama">Password*</label>
+                                <input class="form-control <?php echo form_error('email') ? 'is-invalid' : '' ?>" type="text" name="email" />
+                                <div class="invalid-feedback">
+                                    <?php echo form_error('email') ?>
+                                </div>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="akses">Level*</label>
+                                <select class="form-control" aria-label="Data Role" name="level">
+                                    <option value="Admin">Admin</option>
+                                    <option value="User">supir</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    <?php echo form_error('level') ?>
+                                </div>
+                            </div>
 
+                            <div class="d-grid gap-2 mb-3">
+                                <input class="btn btn-success" type="submit" name="btn" value="Save" />
+                            </div>
+
+                        </form>
+
+                    </div>
             </main>
                                             <!-- /.Left col -->
 

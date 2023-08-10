@@ -60,27 +60,20 @@
                     </div>
                     <div class="card-body">
 
-                        <form action="" method="post" enctype="multipart/form-data">
-                            <input type="hidden" name="id" value="<?php echo $produk->id ?>" />
+                        <form action="<?= base_url(); ?>User/editDataUser" method="post" enctype="multipart/form-data">
+                            <input type="hidden" name="id_user" value="<?php echo $produk->id_user ?>" />
                             <div class="form-group mb-3">
-                                <label for="nama">Nama*</label>
-                                <input class="form-control <?php echo form_error('nama') ? 'is-invalid' : '' ?>" type="text" name="nama" value="<?php echo $produk->nama ?>" />
+                                <label for="nick">Nickname*</label>
+                                <input class="form-control <?php echo form_error('nick') ? 'is-invalid' : '' ?>" type="text" name="nick" value="<?php echo $produk->nick ?>" />
                                 <div class="invalid-feedback">
-                                    <?php echo form_error('nama') ?>
+                                    <?php echo form_error('nick') ?>
                                 </div>
                             </div>
                             <div class="form-group mb-3">
-                                <label for="nama">No Telp*</label>
-                                <input class="form-control <?php echo form_error('notelp') ? 'is-invalid' : '' ?>" type="text" name="notelp" value="<?php echo $produk->notelp ?>" />
+                                <label for="username">Username*</label>
+                                <input class="form-control <?php echo form_error('username') ? 'is-invalid' : '' ?>" type="text" name="username" value="<?php echo $produk->username ?>" />
                                 <div class="invalid-feedback">
-                                    <?php echo form_error('notelp') ?>
-                                </div>
-                            </div>
-                            <div class="form-group mb-3">
-                                <label for="nama">Email*</label>
-                                <input class="form-control <?php echo form_error('email') ? 'is-invalid' : '' ?>" type="text" name="email" value="<?php echo $produk->email ?>" />
-                                <div class="invalid-feedback">
-                                    <?php echo form_error('email') ?>
+                                    <?php echo form_error('username') ?>
                                 </div>
                             </div>
                             <div class="form-group mb-3">
@@ -90,14 +83,22 @@
                                     <?php echo form_error('password') ?>
                                 </div>
                             </div>
+                            <!-- </div>
+                                <div class="form-group mb-3">
+                                <label for="tmpstp">Timestamp*</label>
+                                <input class="form-control <?php echo form_error('tmpstp') ? 'is-invalid' : '' ?>" type="text" name="tmpstp" value="<?php echo $produk->tmpstp ?>" />
+                                <div class="invalid-feedback">
+                                    <?php echo form_error('tmpstp') ?>
+                                </div>
+                            </div> -->
                             <div class="form-group mb-3">
-                                <label for="akses">Role*</label>
-                                <select class="form-select" aria-label="Data Role" name="akses">
-                                    <option value="admin" <?= ($produk->level == 'admin') ? 'selected' : '' ?>>administrator</option>
-                                    <option value="supir" <?= ($produk->level == 'supir') ? 'selected' : '' ?>>supir</option>
+                                <label for="level">Level*</label>
+                                <select class="form-control" aria-label="level" name="level">
+                                    <option value="Admin" <?= ($produk->level == 'Admin') ? 'selected' : '' ?>>administrator</option>
+                                    <option value="User" <?= ($produk->level == 'User') ? 'selected' : '' ?>>supir</option>
                                 </select>
                                 <div class="invalid-feedback">
-                                    <?php echo form_error('akses') ?>
+                                    <?php echo form_error('level') ?>
                                 </div>
                             </div>
 
