@@ -60,7 +60,7 @@ class Muser extends CI_Model
 
     public function getById($id_user)
     {
-        return $this->db->get_where($this->_table, ["id" => $id_user])->row();
+        return $this->db->get_where($this->_table, ["id_user" => $id_user])->row();
     }
 
     public function save()
@@ -86,11 +86,23 @@ class Muser extends CI_Model
         $this->password = $post["password"];
         $this->level = $post["level"];
         $this->tmpstp = $post["tmpstp"];
-        return $this->db->update($this->_table, $this, array('id' => $post['id']));
+        return $this->db->update($this->_table, $this, array('id_user' => $post['id_user']));
     }
 
     public function delete($id_user)
     {
-        return $this->db->delete($this->_table, array("id" => $id_user));
+        return $this->db->delete($this->_table, array("id_user" => $id_user));
+    }
+    
+    public function updateUser($id, $data, $table)
+    {
+        $this->db->where('id_user', $id);
+        $this->db->update($table, $data);
+    }
+
+    public function tambah_user()
+    {
+        $this->db->where('id_user', $id);
+        $this->db->save();
     }
 }

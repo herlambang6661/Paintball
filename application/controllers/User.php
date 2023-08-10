@@ -7,12 +7,19 @@ class User extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model("Muser");
-        $this->load->library('form_validation');
-        if ($this->session->userdata('logged') != TRUE) {
-            $url = base_url('login');
-            redirect($url);
-        };
+        if ($this->session->userdata('status') != "login") {
+            redirect(base_url());
+        }
+        date_default_timezone_set('Asia/Jakarta');
+        // List of Models
+        $models = array(
+            'Muser' => 'Muser',
+        );
+        // Load Multiple Models
+        foreach ($models as $file => $object_name) {
+            $this->load->model($file, $object_name);
+        }
+        $this->load->helper(array('form', 'url'));
     }
 
     public function index()
@@ -25,6 +32,7 @@ class User extends CI_Controller
     public function add()
     {
         $product = $this->Muser;
+        $data['active'] = 'pengguna';
         $validation = $this->form_validation;
         $validation->set_rules($product->rules());
 
@@ -36,7 +44,7 @@ class User extends CI_Controller
         }
 
         // $data["eks"] = $this->Mekspedisi->getAll();
-        $this->load->view("halaman_user");
+        $this->load->view("user/halaman_tambah_user");
     }
 
     public function edit($id_user = null)
@@ -44,6 +52,7 @@ class User extends CI_Controller
         if (!isset($id_user)) redirect('user');
 
         $product = $this->Muser;
+        $data['active'] = 'pengguna';
         $validation = $this->form_validation;
         $validation->set_rules($product->rules());
 
@@ -62,12 +71,59 @@ class User extends CI_Controller
         // $produk = $this->Mproduk->produkbyuser($id, $id_user)->row();
         // $data = ['produk' => $produk, 'eks' => $eks];
 
-        $this->load->view("halaman_edit_user", $data);
+        $this->load->view("user/halaman_edit_user", $data);
+    }
+
+    public function adds()
+    {
+        // $product = $this->Muser;
+    $nick = filter_input(INPUT_POST, 'nick', FILTER_SANITIZE_STRING);
+    $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
+    // enkripsi password
+    $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
+    $level = filter_input(INPUT_POST, 'level', FILTER_VALIDATE_EMAIL);
+
+    $sql = "INSERT INTO pb_users (nick, username, password, level) 
+            VALUES (:nick, :username, :password, :level)";
+    $stmt = $db->pb_users($sql);
+        $params = array(
+        ":nick" => $nick,
+        ":username" => $username,
+        ":password" => $password,
+        ":level" => $level
+    );
+
+    // eksekusi query untuk menyimpan ke database
+    $saved = $stmt->execute($params);
+
+    
+
+
+    }
+
+    public function editDataUser(){
+        $id = $_POST['id_user'];
+        $nick = $_POST['nick'];
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+        $level = $_POST['level'];
+        
+        $dataUpdate = array(
+            'nick' => $nick,
+            'username' => $username,
+            'password' => $password,
+            'level' => $level,
+        );
+
+        $this->Muser->updateUser($id, $dataUpdate, 'pb_users');
+        redirect(site_url('user'));
+
     }
 
     public function delete($id_user = null)
     {
         if (!isset($id_user)) show_404();
+        $data['active'] = 'pengguna';
 
         if ($this->Muser->delete($id_user)) {
             redirect(site_url('user'));
