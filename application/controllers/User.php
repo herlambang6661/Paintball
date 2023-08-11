@@ -21,6 +21,7 @@ class User extends CI_Controller
         }
         $this->load->helper(array('form', 'url'));
         $this->load->model('Muser');
+        
     }
 
     public function index()
@@ -37,16 +38,22 @@ class User extends CI_Controller
         $validation = $this->form_validation;
         $validation->set_rules($product->rules());
 
-        if ($validation->run()==true) {
+        if ($validation->run()) {
             $product->save();
             $this->session->set_flashdata('success', 'User berhasil disimpan');
-            $url = base_url('user');
+            $url = base_url('user/halaman_user');
             redirect($url);
         }
 
         // $data["eks"] = $this->Mekspedisi->getAll();
-        $this->load->view("user/halaman_tambah_user");
+        $this->load->view("user/halaman_tambah_user", $data);
     }
+
+        
+        
+
+        // $data["eks"] = $this->Mekspedisi->getAll();
+    
 
     public function edit($id_user = null)
     {
@@ -92,32 +99,6 @@ class User extends CI_Controller
         redirect(site_url('user'));
 
     }
-
-    public function adds()
-    {
-        $this->form_validation->set_rules('nick', 'nick', 'trim|required|min_length[1]|max_length[255]');
-        $this->form_validation->set_rules('username', 'username','trim|required|min_length[1]|max_length[255]|is_unique[pb_users.username]');
-		$this->form_validation->set_rules('password', 'password','trim|required|min_length[1]|max_length[255]');
-		$this->form_validation->set_rules('level', 'level','trim|required|min_length[1]|max_length[255]');
-		if ($this->form_validation->run()==true)
-	{
-			$username = $this->input->post('username');
-			$password = $this->input->post('password');
-			$nick = $this->input->post('nick');
-			$this->Muser->tambah_user($username,$password,$nick);
-			$this->session->set_flashdata('success_register','Proses Pendaftaran User Berhasil');
-			$url = base_url('user/adds');
-            redirect($url);
-		}
-		else
-		{
-			$this->session->set_flashdata('error', validation_errors());
-			redirect('user');
-		}
-
-
-    }
-
     public function delete($id_user = null)
     {
         if (!isset($id_user)) show_404();
