@@ -77,13 +77,13 @@
                                 <div class="container-fluid">
                                     <div class="row mb-2">
                                         <div class="col-sm-6">
-                                            <h1 class="m-0"><i class="nav-icon fa-fw fa-solid fa-cubes-stacked"></i> Stock Barang</h1>
+                                            <h1 class="m-0"><i class="nav-icon fa-fw fa-solid fa-cubes-stacked"></i> History Barang</h1>
                                         </div><!-- /.col -->
                                         <div class="col-sm-6">
                                             <ol class="breadcrumb float-sm-right">
                                                 <li class="breadcrumb-item"><a href="<?= base_url(); ?>Dashboard"><i class="nav-icon fas fa-tachometer-alt"></i> Dashboard</a></li>
                                                 <li class="breadcrumb-item active"><i class="nav-icon fas fa-box"></i> Barang</li>
-                                                <li class="breadcrumb-item active"><i class="nav-icon fa-fw fa-solid fa-cubes-stacked"></i> Stock Barang</li>
+                                                <li class="breadcrumb-item active"><i class="nav-icon fa-fw fa-solid fa-cubes-stacked"></i> History Barang</li>
                                             </ol>
                                         </div><!-- /.col -->
                                     </div><!-- /.row -->

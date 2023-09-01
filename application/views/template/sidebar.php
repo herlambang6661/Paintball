@@ -186,7 +186,7 @@ if ($active == 'dashboard') {
                                                     <li class="nav-item">
                                                         <a href="<?= base_url(); ?>Stock" class="nav-link <?php echo $stock; ?>" style="margin-left: 15px">
                                                             <i class="nav-icon fa-fw fa-solid fa-cubes-stacked"></i>
-                                                            <p>Stock Barang</p>
+                                                            <p>History Barang</p>
                                                         </a>
                                                     </li>
                                                     <li class="nav-item">
