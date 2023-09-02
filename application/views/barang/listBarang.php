@@ -69,7 +69,7 @@
                                                                                     <div class="col-lg-4 col-6">
                                                                                         <div class="card card-primary callout callout-success">
                                                                                                 <div class="card-body">
-                                                                                                    <form id="tambahBarang">
+                                                                                                    <form id="tambahBarang" onkeydown="return event.key != 'Enter';">
                                                                                                         <div class="form-group">
                                                                                                             <label for="tanggal">Tanggal</label>
                                                                                                             <input type="date" class="form-control form-control-sm" id="tanggal" name="tanggal" value="<?= date('Y-m-d');?>">

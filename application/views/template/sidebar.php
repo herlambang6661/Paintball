@@ -1,107 +1,108 @@
 <?php 
-if ($active == 'dashboard') {
-    $dashboard = 'active';
-    $mdashboard = 'menu-open';
-    $mbarang = '';
-    $mpengaturan = '';
-    $stock = '';
-    $mdaftar = '';
-    $listbarang = '';
-    $kedatangan = '';
-    $pengeluaran = ''; 
-    $pengguna = '';
-    $lacak = '';
-    $mlacak = '';
-} elseif ($active == 'kedatangan') {
-    $mbarang = 'menu-open';
-    $mpengaturan = '';
-    $kedatangan = 'active';
-    $stock = '';
-    $mdaftar = '';
-    $listbarang = '';
-    $dashboard = '';
-    $mdashboard = '';
-    $pengeluaran = '';
-    $pengguna = '';
-    $lacak = '';
-    $mlacak = '';
-} elseif ($active == 'listbarang') {
-    $mbarang = 'menu-open';
-    $mpengaturan = '';
-    $listbarang = 'active';
-    $stock = '';
-    $mdaftar = '';
-    $kedatangan = '';
-    $dashboard = '';
-    $mdashboard = '';
-    $pengeluaran = '';
-    $pengguna = '';
-    $lacak = '';
-    $mlacak = '';
-} elseif ($active == 'stock') {
-    $mbarang = 'menu-open';
-    $mpengaturan = '';
-    $stock = 'active';
-    $listbarang = '';
-    $mdaftar = '';
-    $kedatangan = '';
-    $dashboard = '';
-    $mdashboard = '';
-    $pengeluaran = '';
-    $pengguna = '';
-    $lacak = '';
-    $mlacak = '';
-} elseif ($active == 'pengeluaran') {
-    $mbarang = 'menu-open';
-    $mpengaturan = '';
-    $stock = '';
-    $listbarang = '';
-    $mdaftar = '';
-    $kedatangan = '';
-    $dashboard = '';
-    $mdashboard = '';
-    $pengeluaran = 'active';
-    $pengguna = '';
-    $lacak = '';
-    $mlacak = '';
-} elseif ($active == 'pengguna') {
-    $mbarang = '';
-    $mpengaturan = 'menu-open';
-    $stock = '';
-    $listbarang = '';
-    $mdaftar = '';
-    $kedatangan = '';
-    $dashboard = '';
-    $mdashboard = '';
-    $pengeluaran = '';
-    $pengguna = 'active';
-    $lacak = '';
-    $mlacak = '';
-} elseif ($active == 'lacak') {
-    $mbarang = '';
-    $mpengaturan = '';
-    $stock = '';
-    $listbarang = '';
-    $mdaftar = '';
-    $kedatangan = '';
-    $dashboard = '';
-    $mdashboard = '';
-    $pengeluaran = '';
-    $pengguna = '';
-    $lacak = 'active';
-    $mlacak = 'menu-open';
-} else {
-    $mbarang = '';
-    $mpengaturan = '';
-    $dashboard = '';
-    $stock = '';
-    $pengeluaran = '';
-    $mdashboard = '';
-    $mdaftar = '';
-    $pengguna = '';
-    $lacak = '';
-    $mlacak = '';
-}
+error_reporting(0);
+// if ($active == 'dashboard') {
+//     $dashboard = 'active';
+//     $mdashboard = 'menu-open';
+//     $mbarang = '';
+//     $mpengaturan = '';
+//     $stock = '';
+//     $mdaftar = '';
+//     $listbarang = '';
+//     $kedatangan = '';
+//     $pengeluaran = ''; 
+//     $pengguna = '';
+//     $lacak = '';
+//     $mlacak = '';
+// } elseif ($active == 'kedatangan') {
+//     $mbarang = 'menu-open';
+//     $mpengaturan = '';
+//     $kedatangan = 'active';
+//     $stock = '';
+//     $mdaftar = '';
+//     $listbarang = '';
+//     $dashboard = '';
+//     $mdashboard = '';
+//     $pengeluaran = '';
+//     $pengguna = '';
+//     $lacak = '';
+//     $mlacak = '';
+// } elseif ($active == 'listbarang') {
+//     $mbarang = 'menu-open';
+//     $mpengaturan = '';
+//     $listbarang = 'active';
+//     $stock = '';
+//     $mdaftar = '';
+//     $kedatangan = '';
+//     $dashboard = '';
+//     $mdashboard = '';
+//     $pengeluaran = '';
+//     $pengguna = '';
+//     $lacak = '';
+//     $mlacak = '';
+// } elseif ($active == 'stock') {
+//     $mbarang = 'menu-open';
+//     $mpengaturan = '';
+//     $stock = 'active';
+//     $listbarang = '';
+//     $mdaftar = '';
+//     $kedatangan = '';
+//     $dashboard = '';
+//     $mdashboard = '';
+//     $pengeluaran = '';
+//     $pengguna = '';
+//     $lacak = '';
+//     $mlacak = '';
+// } elseif ($active == 'pengeluaran') {
+//     $mbarang = 'menu-open';
+//     $mpengaturan = '';
+//     $stock = '';
+//     $listbarang = '';
+//     $mdaftar = '';
+//     $kedatangan = '';
+//     $dashboard = '';
+//     $mdashboard = '';
+//     $pengeluaran = 'active';
+//     $pengguna = '';
+//     $lacak = '';
+//     $mlacak = '';
+// } elseif ($active == 'pengguna') {
+//     $mbarang = '';
+//     $mpengaturan = 'menu-open';
+//     $stock = '';
+//     $listbarang = '';
+//     $mdaftar = '';
+//     $kedatangan = '';
+//     $dashboard = '';
+//     $mdashboard = '';
+//     $pengeluaran = '';
+//     $pengguna = 'active';
+//     $lacak = '';
+//     $mlacak = '';
+// } elseif ($active == 'lacak') {
+//     $mbarang = '';
+//     $mpengaturan = '';
+//     $stock = '';
+//     $listbarang = '';
+//     $mdaftar = '';
+//     $kedatangan = '';
+//     $dashboard = '';
+//     $mdashboard = '';
+//     $pengeluaran = '';
+//     $pengguna = '';
+//     $lacak = 'active';
+//     $mlacak = 'menu-open';
+// } else {
+//     $mbarang = '';
+//     $mpengaturan = '';
+//     $dashboard = '';
+//     $stock = '';
+//     $pengeluaran = '';
+//     $mdashboard = '';
+//     $mdaftar = '';
+//     $pengguna = '';
+//     $lacak = '';
+//     $mlacak = '';
+// }
 ?>
                 <!-- Main Sidebar Container -->
                     <aside class="main-sidebar sidebar-dark-primary elevation-4">

@@ -123,5 +123,24 @@ class KedatanganModel extends CI_Model
         $this->db->where($kode, $value);
         $this->db->update($table); 
     }
+    public function get_kedatangan_detail($id)
+    {
+        $this->db->select('*');
+        $this->db->from('pb_kedatangan');
+        $this->db->where('noform', $id);
+        $query = $this->db->get();
+
+        return $query->result();
+    }
+    
+    public function get_kedatangan_detailitm($id)
+    {
+        $this->db->select('*');
+        $this->db->from('pb_kedatanganitm');
+        $this->db->where('form_kedatangan', $id);
+        $query = $this->db->get();
+
+        return $query->result();
+    }
 }
 ?>

@@ -105,7 +105,7 @@
                                                                 <div class="card-header p-0 border-bottom-0">
                                                                     <ul class="nav nav-tabs" id="custom-tabs-four-tab" role="tablist">
                                                                         <li class="nav-item">
-                                                                            <a class="nav-link active" id="custom-tabs-four-1-tab" data-toggle="pill" href="#custom-tabs-four-1" role="tab" aria-controls="custom-tabs-four-1" aria-selected="false"><i class="fa-solid fa-list-ul"></i> List Stock Barang</a>
+                                                                            <a class="nav-link active" id="custom-tabs-four-1-tab" data-toggle="pill" href="#custom-tabs-four-1" role="tab" aria-controls="custom-tabs-four-1" aria-selected="false"><i class="fa-solid fa-list-ul"></i> List History Barang</a>
                                                                         </li>
                                                                     </ul>
                                                                 </div>
@@ -299,7 +299,7 @@
             <div class="modal-dialog modal-xl" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title"><i class="fa-solid fa-circle-info"></i> Detail Stock Barang</h4>
+                        <h4 class="modal-title"><i class="fa-solid fa-circle-info"></i> Detail History Barang</h4>
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
                     <div class="modal-body">
