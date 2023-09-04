@@ -73,8 +73,8 @@
                                                                                         <div class="row">
                                                                                             <div class="col-lg-12 col-12">
                                                                                                 <div class="table-responsive">
-                                                                                                    <table id="kedatanganlist" class="table table-sm table-bordered table-hover text-nowrap" width="100%">
-                                                                                                        <thead class="bg-navy">
+                                                                                                    <table id="kedatanganlist" class="table table-sm table-bordered table-hover text-nowrap border border-dark" width="100%" style="text-transform:uppercase;">
+                                                                                                        <thead class="bg-navy" style="border-color:black;">
                                                                                                             <tr>
                                                                                                                 <th width="5%">Id</th>
                                                                                                                 <th width="8%">No Form</th>
@@ -135,6 +135,27 @@
                                                                                         <td style="border-color:black" class="bg-gradient-primary text-white" width="10%">Bea Cukai</td>
                                                                                     </thead>
                                                                                 </table>
+                                                                                <script>
+                                                                                    function switchDollar(id) {
+                                                                                        var btnDollar = document.getElementById('btnSwDl'+id);
+                                                                                        var kurs = document.getElementById('kurs_'+id);
+                                                                                        var matauang = document.getElementById('matauang'+id);
+
+                                                                                        if (btnDollar.classList == 'btn btn-sm btn-dark') {
+                                                                                            btnDollar.classList.remove("btn-dark");
+                                                                                            btnDollar.classList.add("btn-success");
+                                                                                            kurs.removeAttribute('readonly');
+                                                                                            matauang.value = 'USD';
+                                                                                        }
+                                                                                        else if (btnDollar.classList == 'btn btn-sm btn-success') {
+                                                                                            btnDollar.classList.remove("btn-success");
+                                                                                            btnDollar.classList.add("btn-dark");
+                                                                                            kurs.setAttribute('readonly', true);
+                                                                                            kurs.value = '0';
+                                                                                            matauang.value = 'IDR';
+                                                                                        }
+                                                                                    }
+                                                                                </script>
                                                                                 <div class="row">
                                                                                     <div class="col">
                                                                                         <div class="card">
@@ -215,7 +236,7 @@
 
             // Kolom 2 Nama Barang
             var td = document.createElement("td");
-            td.innerHTML += '<select name="namabarang[]" class="form-control form-control-sm elementbrn inputNone" style="width:100%"><option></option></select>';
+            td.innerHTML += '<select name="namabarang[]" class="form-control form-control-sm elementbrn inputNone" style="width:100%" style="border-color:black;text-transform: uppercase;"><option></option></select>';
             tr.appendChild(td);
 
             // Kolom 3 Qty
@@ -230,12 +251,13 @@
 
             // Kolom 5 Harga
             var td = document.createElement("td");
-            td.innerHTML += "<input type='number' name='harga[]' id='harga_"+idf+"' class='form-control form-control-sm inputNone' style='border-color:black;text-transform: uppercase;'>";
+            // td.innerHTML += "<input type='number' name='harga[]' id='harga_"+idf+"' class='form-control form-control-sm inputNone' style='border-color:black;text-transform: uppercase;'>";
+            td.innerHTML += '<div class="input-group mb-3"><div class="input-group-prepend"><button class="btn btn-sm btn-dark" id="btnSwDl'+idf+'" onclick="switchDollar('+idf+')" type="button" style="border-color:black;"><i class="fa-solid fa-dollar-sign"></i></button></div><input type="text" name="harga[]" id="harga_'+idf+'" class="form-control form-control-sm" placeholder="" aria-label="" aria-describedby="basic-addon1" style="border-color:black;text-transform: uppercase;"></div>';                            
             tr.appendChild(td);
 
             // Kolom 6 Kurs
             var td = document.createElement("td");
-            td.innerHTML += "<input type='number' name='kurs[]' id='kurs_"+idf+"' class='form-control form-control-sm inputNone' style='border-color:black;text-transform: uppercase;'>";
+            td.innerHTML += "<input type='number' name='kurs[]' id='kurs_"+idf+"' class='form-control form-control-sm inputNone' readonly style='border-color:black;text-transform: uppercase;' value='0'><input type='hidden' name='matauang[]' id='matauang"+idf+"' value='IDR'>";
             tr.appendChild(td);
 
             // Kolom 6 Trucking
@@ -325,8 +347,26 @@
                         Swal.fire({
                             icon: 'warning',
                             title: 'Gagal Menyimpan',
-                            text: 'Tidak ada data yang diinput, pastikan input anda benar',
+                            text: 'Tidak ada data yang disimpan, pastikan input anda benar',
+                            showDenyButton: false,
+                            showCancelButton: true,
+                            confirmButtonText: 'Lihat Detail',
+                            cancelButtonText: `OK`,
+                        }).then((result) => {
+                            /* Read more about isConfirmed, isDenied below */
+                            if (result.isConfirmed) {
+                                Swal.fire({
+                                    title: '<strong>Error Reporting</strong>',
+                                    icon: 'info',
+                                    html: response,
+                                    showCloseButton: true,
+                                    showCancelButton: false,
+                                    focusConfirm: false,
+                                    cancelButtonText: 'OK',
+                                })
+                            }
                         });
+                        console.log(response);
                     }
                     console.log(response);
                 },
@@ -429,7 +469,8 @@
                         className: "text-center",
                         mRender: function(data, type, row) {
                             var bindHtml = '';
-                            bindHtml += '<a data-toggle="modal" data-target="#update-barang" href="javascript:void(0);" title="Ubah Data Barang" class="update-barang-details ml-1 btn-ext-small btn btn-sm btn-primary" data-id="' + row[0] + '"><i class="fas fa-edit"></i></a>';
+                            bindHtml += '<a data-toggle="modal" data-target="#modalDetail" href="javascript:void(0);" title="Lihat Data Kedatangan" class="view-barang-details ml-1 btn-ext-small btn btn-sm btn-info" data-id="' + row[1] + '"><i class="fas fa-eye"></i></a>';
+                            bindHtml += '<a data-toggle="modal" data-target="#update-barang" href="javascript:void(0);" title="Ubah Data Kedatangan" class="update-barang-details ml-1 btn-ext-small btn btn-sm btn-primary" data-id="' + row[0] + '"><i class="fas fa-edit"></i></a>';
                             bindHtml += '<a data-toggle="modal" href="javascript:void(0);" title="Hapus Data Barang" class="remove ml-1 btn-ext-small btn btn-sm btn-danger" data-id="' + row[0] + '" data-nama="' + row[4] + '" data-kode="' + row[2] + '"><i class="fas fa-trash"></i></a>';
                             return bindHtml;
                         }
@@ -524,8 +565,169 @@
 
                 })
             });
+            
+            $('#modalDetail').on('show.bs.modal', function(e) {
+                $("#overlay").fadeIn(300);
+                var rowid = $(e.relatedTarget).data('id');
+                //menggunakan fungsi ajax untuk pengambilan data
+                $.ajax({
+                    type: 'POST',
+                    url: '<?php echo base_url(); ?>index.php/Kedatangan/getDetailKedatangan',
+                    data: {
+                        rowid: rowid,
+                    },
+                    success: function(data) {
+                        $('.fetched-data-kedatangan').html(data); //menampilkan data ke dalam modal
+                    }
+                }).done(function() {
+                    setTimeout(function(){
+                        $("#overlay").fadeOut(300);
+                    },500);
+                });
+            });
         });
     </script>
     <!-- Page specific script -->
     <script src="<?= base_url() ?>assets/summernote/summernote-bs4.js"></script>
+    
+    <!-- Modal ============================================================================================================================================================================= -->
+        <style>
+            .modal-fullscreen {
+                max-width: 95%;
+                margin-left: auto;
+                margin-right: auto;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                height: 100%;
+                /* display: flex; */
+            }
+        </style>
+        <style>
+            #overlay{	
+                position: fixed;
+                top: 0;
+                z-index: 100;
+                width: 100%;
+                height:100%;
+                display: none;
+                background: rgba(0,0,0,0.6);
+            }
+            .cv-spinner {
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;  
+            }
+            /* .spinner {
+                width: 40px;
+                height: 40px;
+                border: 4px #ddd solid;
+                border-top: 4px #2e93e6 solid;
+                border-radius: 50%;
+                animation: sp-anime 0.8s infinite linear;
+            } */
+            
+            .spinner {
+                transform: rotateZ(45deg);
+                perspective: 1000px;
+                border-radius: 50%;
+                width: 48px;
+                height: 48px;
+                color: #fff;
+            }
+                .spinner:before,
+                .spinner:after {
+                content: '';
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: inherit;
+                height: inherit;
+                border-radius: 50%;
+                transform: rotateX(70deg);
+                animation: 1s spin linear infinite;
+                }
+                .spinner:after {
+                color: #0d6efd;
+                transform: rotateY(70deg);
+                animation-delay: .4s;
+                }
+            @keyframes rotate {
+                0% {
+                transform: translate(-50%, -50%) rotateZ(0deg);
+                }
+                100% {
+                transform: translate(-50%, -50%) rotateZ(360deg);
+                }
+            }
+            @keyframes rotateccw {
+                0% {
+                transform: translate(-50%, -50%) rotate(0deg);
+                }
+                100% {
+                transform: translate(-50%, -50%) rotate(-360deg);
+                }
+            }
+            @keyframes spin {
+                0%,
+                100% {
+                box-shadow: .2em 0px 0 0px currentcolor;
+                }
+                12% {
+                box-shadow: .2em .2em 0 0 currentcolor;
+                }
+                25% {
+                box-shadow: 0 .2em 0 0px currentcolor;
+                }
+                37% {
+                box-shadow: -.2em .2em 0 0 currentcolor;
+                }
+                50% {
+                box-shadow: -.2em 0 0 0 currentcolor;
+                }
+                62% {
+                box-shadow: -.2em -.2em 0 0 currentcolor;
+                }
+                75% {
+                box-shadow: 0px -.2em 0 0 currentcolor;
+                }
+                87% {
+                box-shadow: .2em -.2em 0 0 currentcolor;
+                }
+            }
+            @keyframes sp-anime {
+                100% { 
+                    transform: rotate(360deg); 
+                }
+            }
+            .is-hide{
+                display:none;
+            }
+        </style>
+        <div class="modal fade" id="modalDetail" role="dialog">
+            <div id="overlay">
+                <div class="cv-spinner">
+                    <span class="spinner"></span>
+                </div>
+            </div>
+            <div class="modal-dialog modal-xl modal-fullscreen" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Detail Kedatangan Barang</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="fetched-data-kedatangan"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Keluar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- Modal ============================================================================================================================================================================= -->
+
 </html>

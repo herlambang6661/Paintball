@@ -117,13 +117,14 @@ class Kedatangan extends CI_Controller {
             'dibuat' => $dibuat
         );
 
-        $idbarang = $_POST['namabarang'];
+        $idbarang   = $_POST['namabarang'];
         $qty        = $_POST['qty'];
         $satuan     = $_POST['satuan'];
         $harga      = $_POST['harga'];
         $kurs       = $_POST['kurs'];
         $trucking   = $_POST['trucking'];
         $beacukai   = $_POST['beacukai'];
+        $matauang   = $post['matauang'];
 
         // Jika Item Barang Terisi => input barang
         if (!empty($idbarang)) {
@@ -152,6 +153,7 @@ class Kedatangan extends CI_Controller {
                     'qty' => $qty[$i],
                     'satuan' => $satuan[$i],
                     'harga' => $harga[$i],
+                    'matauang' => $matauang[$i],
                     'kurs' => $kurs[$i],
                     'trucking' => $kurs[$i],
                     'bea_cukai' => $beacukai[$i],
@@ -186,5 +188,94 @@ class Kedatangan extends CI_Controller {
 		// $data['active'] = 'kedatangan';
 		// $data['kodeBarang'] = $kodeBarangnew;
         // redirect('kedatangan/index', $data);
+    }
+
+    function getDetailKedatangan() {
+        $post = $this->input->post();
+
+        $id = $post['rowid'];
+        $data = $this->kedatangan->get_kedatangan_detail($id);
+        foreach ($data as $u) {
+            ?>
+            <div class="row" style="color: black;">
+                <div class="col-sm-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <div class="col-xs-6">
+                                    <label for="last_name">
+                                        <h6>Tanggal</h6>
+                                    </label>
+                                    <input type="date" class="form-control form-control-sm" value="<?php print $u->tgl ?>" readonly>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-xs-6">
+                                    <label for="first_name">
+                                        <h6>No. Form</h6>
+                                    </label>
+                                    <input type="text" class="form-control form-control-sm" value="<?php print $u->noform ?>" readonly>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body" style="overflow-y: scroll; height: 260px">
+                            <i>*Note :</i><br>
+                            <?php echo $u->keterangan ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <?php
+            $data2 = $this->kedatangan->get_kedatangan_detailitm($u->noform);
+            $no1 = 1;
+            ?>
+            <br>
+            <div class="table-responsive">
+                <table class="table table-bordered table-sm text-nowrap" style="font-size: 14px; height: 2px;">
+                    <thead>
+                        <th class="border border-dark">#</th>
+                        <th class="border border-dark">Kode Kedatangan</th>
+                        <th class="border border-dark">Kode Barang</th>
+                        <th class="border border-dark">Barang</th>
+                        <th class="border border-dark">Qty</th>
+                        <th class="border border-dark">Satuan</th>
+                        <th class="border border-dark">Mata Uang</th>
+                        <th class="border border-dark">Harga</th>
+                        <th class="border border-dark">Kurs</th>
+                        <th class="border border-dark">Trucking</th>
+                        <th class="border border-dark">Bea Cukai</th>
+                    </thead>
+
+                    <?php foreach ($data2 as $w) { ?>
+                        <tr>
+                            <td class="border border-dark text-dark"><?php echo $no1++ ?></td>
+                            <td class="border border-dark text-dark"><?php echo $w->kodekedatangan ?></td>
+                            <td class="border border-dark text-dark"><?php echo $w->kodebarang ?></td>
+                            <td class="border border-dark text-dark"><?php echo $w->namabarang ?></td>
+                            <td class="border border-dark text-dark"><?php echo $w->qty ?></td>
+                            <td class="border border-dark text-dark"><?php echo $w->satuan ?></td>
+                            <td class="border border-dark text-dark"><?php echo $w->matauang ?></td>
+                            <td class="border border-dark text-dark"><?php echo $w->harga ?></td>
+                            <td class="border border-dark text-dark"><?php echo $w->kurs ?></td>
+                            <td class="border border-dark text-dark"><?php echo $w->trucking ?></td>
+                            <td class="border border-dark text-dark"><?php echo $w->bea_cukai ?></td>
+                        </tr>
+                    <?php
+                        // foreach ($stts as $key) {
+                        //     if ($key == "PENGADAAN") {
+                        //         echo '<div class="col"><button type="button" class="btn btn-danger" data-dismiss="modal">Hapus</button></div><hr>';
+                        //     } else {
+                        //         echo '<div class="col"><button type="button" class="btn btn-danger" data-dismiss="modal" disabled>Hapus</button></div><hr>';
+                        //     }
+                        // }
+                    } ?>
+                </table>
+            </div>
+        <?php
+        }
     }
 }
