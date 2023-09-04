@@ -182,7 +182,7 @@ error_reporting(0);
                                                         </a>
                                                     </li>
                                                     <li class="nav-item">
-                                                        <a href="./index3.html" class="nav-link" style="margin-left: 15px">
+                                                        <a href="<?= base_url(); ?>Daftar/Customer" class="nav-link <?php echo $daftarcustomer; ?>" style="margin-left: 15px">
                                                             <i class="fa-solid fa-user-group"></i>
                                                             <p>Customer</p>
                                                         </a>
