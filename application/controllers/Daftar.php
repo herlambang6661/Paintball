@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Dashboard extends CI_Controller {
+class Daftar extends CI_Controller {
 
     public function __construct()
     {
@@ -12,7 +12,7 @@ class Dashboard extends CI_Controller {
         date_default_timezone_set('Asia/Jakarta');
         // List of Models
         $models = array(
-            // 'BarangModel' => 'barang',
+            'BarangModel' => 'barang',
         );
         // Load Multiple Models
         foreach ($models as $file => $object_name) {
@@ -21,9 +21,11 @@ class Dashboard extends CI_Controller {
         $this->load->helper(array('form', 'url'));
     }
 
-	public function index()
+	public function ekspedisi()
 	{
-		$data['dashboard'] = 'active';
-		$this->load->view('dashboard', $data);
+        $data['mdaftar'] = 'menu-open';
+		$data['daftarekspedisi'] = 'active';
+		$this->load->view('daftar/ekspedisi', $data);
 	}
+
 }

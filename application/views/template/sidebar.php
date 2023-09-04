@@ -1,107 +1,123 @@
 <?php 
-if ($active == 'dashboard') {
-    $dashboard = 'active';
-    $mdashboard = 'menu-open';
-    $mbarang = '';
-    $mpengaturan = '';
-    $stock = '';
-    $mdaftar = '';
-    $listbarang = '';
-    $kedatangan = '';
-    $pengeluaran = ''; 
-    $pengguna = '';
-    $lacak = '';
-    $mlacak = '';
-} elseif ($active == 'kedatangan') {
-    $mbarang = 'menu-open';
-    $mpengaturan = '';
-    $kedatangan = 'active';
-    $stock = '';
-    $mdaftar = '';
-    $listbarang = '';
-    $dashboard = '';
-    $mdashboard = '';
-    $pengeluaran = '';
-    $pengguna = '';
-    $lacak = '';
-    $mlacak = '';
-} elseif ($active == 'listbarang') {
-    $mbarang = 'menu-open';
-    $mpengaturan = '';
-    $listbarang = 'active';
-    $stock = '';
-    $mdaftar = '';
-    $kedatangan = '';
-    $dashboard = '';
-    $mdashboard = '';
-    $pengeluaran = '';
-    $pengguna = '';
-    $lacak = '';
-    $mlacak = '';
-} elseif ($active == 'stock') {
-    $mbarang = 'menu-open';
-    $mpengaturan = '';
-    $stock = 'active';
-    $listbarang = '';
-    $mdaftar = '';
-    $kedatangan = '';
-    $dashboard = '';
-    $mdashboard = '';
-    $pengeluaran = '';
-    $pengguna = '';
-    $lacak = '';
-    $mlacak = '';
-} elseif ($active == 'pengeluaran') {
-    $mbarang = 'menu-open';
-    $mpengaturan = '';
-    $stock = '';
-    $listbarang = '';
-    $mdaftar = '';
-    $kedatangan = '';
-    $dashboard = '';
-    $mdashboard = '';
-    $pengeluaran = 'active';
-    $pengguna = '';
-    $lacak = '';
-    $mlacak = '';
-} elseif ($active == 'pengguna') {
-    $mbarang = '';
-    $mpengaturan = 'menu-open';
-    $stock = '';
-    $listbarang = '';
-    $mdaftar = '';
-    $kedatangan = '';
-    $dashboard = '';
-    $mdashboard = '';
-    $pengeluaran = '';
-    $pengguna = 'active';
-    $lacak = '';
-    $mlacak = '';
-} elseif ($active == 'lacak') {
-    $mbarang = '';
-    $mpengaturan = '';
-    $stock = '';
-    $listbarang = '';
-    $mdaftar = '';
-    $kedatangan = '';
-    $dashboard = '';
-    $mdashboard = '';
-    $pengeluaran = '';
-    $pengguna = '';
-    $lacak = 'active';
-    $mlacak = 'menu-open';
-} else {
-    $mbarang = '';
-    $mpengaturan = '';
-    $dashboard = '';
-    $stock = '';
-    $pengeluaran = '';
-    $mdashboard = '';
-    $mdaftar = '';
-    $pengguna = '';
-    $lacak = '';
-    $mlacak = '';
-}
+error_reporting(0);
+// Dashboard
+    // if ($active == 'dashboard') {
+    //     $dashboard = 'active';
+    //     $mdashboard = 'menu-open';
+    //     $mbarang = '';
+    //     $mpengaturan = '';
+    //     $stock = '';
+    //     $mdaftar = '';
+    //     $listbarang = '';
+    //     $kedatangan = '';
+    //     $pengeluaran = ''; 
+    //     $pengguna = '';
+    //     $lacak = '';
+    //     $mlacak = '';
+    // } elseif ($active == 'kedatangan') {
+    //     $mbarang = 'menu-open';
+    //     $mpengaturan = '';
+    //     $kedatangan = 'active';
+    //     $stock = '';
+    //     $mdaftar = '';
+    //     $listbarang = '';
+    //     $dashboard = '';
+    //     $mdashboard = '';
+    //     $pengeluaran = '';
+    //     $pengguna = '';
+    //     $lacak = '';
+    //     $mlacak = '';
+    // } elseif ($active == 'listbarang') {
+    //     $mbarang = 'menu-open';
+    //     $mpengaturan = '';
+    //     $listbarang = 'active';
+    //     $stock = '';
+    //     $mdaftar = '';
+    //     $kedatangan = '';
+    //     $dashboard = '';
+    //     $mdashboard = '';
+    //     $pengeluaran = '';
+    //     $pengguna = '';
+    //     $lacak = '';
+    //     $mlacak = '';
+    // } elseif ($active == 'stock') {
+    //     $mbarang = 'menu-open';
+    //     $mpengaturan = '';
+    //     $stock = 'active';
+    //     $listbarang = '';
+    //     $mdaftar = '';
+    //     $kedatangan = '';
+    //     $dashboard = '';
+    //     $mdashboard = '';
+    //     $pengeluaran = '';
+    //     $pengguna = '';
+    //     $lacak = '';
+    //     $mlacak = '';
+    // } elseif ($active == 'pengeluaran') {
+    //     $mbarang = 'menu-open';
+    //     $mpengaturan = '';
+    //     $stock = '';
+    //     $listbarang = '';
+    //     $mdaftar = '';
+    //     $kedatangan = '';
+    //     $dashboard = '';
+    //     $mdashboard = '';
+    //     $pengeluaran = 'active';
+    //     $pengguna = '';
+    //     $lacak = '';
+    //     $mlacak = '';
+    // } elseif ($active == 'pengguna') {
+    //     $mbarang = '';
+    //     $mpengaturan = 'menu-open';
+    //     $stock = '';
+    //     $listbarang = '';
+    //     $mdaftar = '';
+    //     $kedatangan = '';
+    //     $dashboard = '';
+    //     $mdashboard = '';
+    //     $pengeluaran = '';
+    //     $pengguna = 'active';
+    //     $lacak = '';
+    //     $mlacak = '';
+    // } elseif ($active == 'lacak') {
+    //     $mbarang = '';
+    //     $mpengaturan = '';
+    //     $stock = '';
+    //     $listbarang = '';
+    //     $mdaftar = '';
+    //     $kedatangan = '';
+    //     $dashboard = '';
+    //     $mdashboard = '';
+    //     $pengeluaran = '';
+    //     $pengguna = '';
+    //     $lacak = 'active';
+    //     $mlacak = 'menu-open';
+    // } elseif ($active == 'lacak') {
+    //     $mbarang = '';
+    //     $mpengaturan = '';
+    //     $stock = '';
+    //     $listbarang = '';
+    //     $mdaftar = '';
+    //     $kedatangan = '';
+    //     $dashboard = '';
+    //     $mdashboard = '';
+    //     $pengeluaran = '';
+    //     $pengguna = '';
+    //     $lacak = 'active';
+    //     $mlacak = 'menu-open';
+    // } else {
+    //     $mbarang = '';
+    //     $mpengaturan = '';
+    //     $dashboard = '';
+    //     $stock = '';
+    //     $pengeluaran = '';
+    //     $mdashboard = '';
+    //     $mdaftar = '';
+    //     $pengguna = '';
+    //     $lacak = '';
+    //     $mlacak = '';
+    // }
+// Dashboard
 ?>
                 <!-- Main Sidebar Container -->
                     <aside class="main-sidebar sidebar-dark-primary elevation-4">
@@ -160,9 +176,15 @@ if ($active == 'dashboard') {
                                                 </a>
                                                 <ul class="nav nav-treeview">
                                                     <li class="nav-item">
-                                                        <a href="./index3.html" class="nav-link" style="margin-left: 15px">
+                                                        <a href="<?= base_url(); ?>Daftar/Ekspedisi" class="nav-link <?php echo $daftarekspedisi; ?>" style="margin-left: 15px">
                                                             <i class="fa-solid fa-truck-plane"></i>
                                                             <p>Ekspedisi</p>
+                                                        </a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a href="./index3.html" class="nav-link" style="margin-left: 15px">
+                                                            <i class="fa-solid fa-user-group"></i>
+                                                            <p>Customer</p>
                                                         </a>
                                                     </li>
                                                 </ul>
@@ -209,7 +231,7 @@ if ($active == 'dashboard') {
                                                     <i class="fa-solid nav-icon fa-magnifying-glass-location"></i>
                                                     <p>
                                                         Lacak
-                                                        <i class="fas fa-angle-right right"></i>
+                                                        <i class="right fas fa-angle-right"></i>
                                                     </p>
                                                 </a>
                                                 <ul class="nav nav-treeview">

@@ -23,7 +23,8 @@ class Stock extends CI_Controller {
 
 	public function index()
 	{
-		$data['active'] = 'stock';
+        $data['mbarang'] = 'menu-open';
+		$data['stock'] = 'active';
 		$this->load->view('stock/index', $data);
 	}
     

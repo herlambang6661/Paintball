@@ -51,12 +51,12 @@
             display:none;
         }
 
-    @keyframes spin {
-    to { -webkit-transform: rotate(360deg); }
-    }
-    @-webkit-keyframes spin {
-    to { -webkit-transform: rotate(360deg); }
-    }
+        @keyframes spin {
+            to { -webkit-transform: rotate(360deg); }
+        }
+        @-webkit-keyframes spin {
+            to { -webkit-transform: rotate(360deg); }
+        }
     </style>
     <!-- Library Header -->
     <body class="hold-transition sidebar-mini layout-fixed">
@@ -65,11 +65,9 @@
                 <!-- Navbar -->
                 <?php $this->load->view('template/navbar'); ?>
                 <!-- Navbar -->
-
                 <!-- Sidebar -->
                 <?php $this->load->view('template/sidebar'); ?>
                 <!-- Sidebar -->
-
                 <!-- Content Wrapper. Contains page content -->
                     <div class="content-wrapper">
                         <!-- Content Header (Page header) -->
@@ -77,20 +75,19 @@
                                 <div class="container-fluid">
                                     <div class="row mb-2">
                                         <div class="col-sm-6">
-                                            <h1 class="m-0"><i class="nav-icon fa-fw fa-solid fa-cubes-stacked"></i> History Barang</h1>
+                                            <h1 class="m-0"><i class="fa-solid fa-fw fa-truck-plane"></i> Daftar Ekspedisi</h1>
                                         </div><!-- /.col -->
                                         <div class="col-sm-6">
                                             <ol class="breadcrumb float-sm-right">
                                                 <li class="breadcrumb-item"><a href="<?= base_url(); ?>Dashboard"><i class="nav-icon fas fa-tachometer-alt"></i> Dashboard</a></li>
-                                                <li class="breadcrumb-item active"><i class="nav-icon fas fa-box"></i> Barang</li>
-                                                <li class="breadcrumb-item active"><i class="nav-icon fa-fw fa-solid fa-cubes-stacked"></i> History Barang</li>
+                                                <li class="breadcrumb-item active"><i class="nav-icon fas fa-computer"></i> Daftar</li>
+                                                <li class="breadcrumb-item active"><i class="fa-solid fa-truck-plane"></i> Ekspedisi</li>
                                             </ol>
                                         </div><!-- /.col -->
                                     </div><!-- /.row -->
                                 </div><!-- /.container-fluid -->
                             </div>
                         <!-- /.content-header -->
-
                         <!-- Main content -->
                             <section class="content">
                                 <div class="container-fluid">
@@ -105,7 +102,7 @@
                                                                 <div class="card-header p-0 border-bottom-0">
                                                                     <ul class="nav nav-tabs" id="custom-tabs-four-tab" role="tablist">
                                                                         <li class="nav-item">
-                                                                            <a class="nav-link active" id="custom-tabs-four-1-tab" data-toggle="pill" href="#custom-tabs-four-1" role="tab" aria-controls="custom-tabs-four-1" aria-selected="false"><i class="fa-solid fa-list-ul"></i> List History Barang</a>
+                                                                            <a class="nav-link active" id="custom-tabs-four-1-tab" data-toggle="pill" href="#custom-tabs-four-1" role="tab" aria-controls="custom-tabs-four-1" aria-selected="false"><i class="fa-solid fa-plane-departure"></i> List Daftar Ekspedisi</a>
                                                                         </li>
                                                                     </ul>
                                                                 </div>
@@ -136,7 +133,6 @@
                                                                                 </section>                                                                        
                                                                             </div>
                                                                         <!-- panel 1 -->
-                                                                        
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -145,7 +141,6 @@
                                                     <!-- Custom tabs (Charts with tabs)-->
                                                 </section>
                                             <!-- /.Left col -->
-
                                             <!-- right col (We are only adding the ID to make the widgets sortable)-->
                                             <!-- right col -->
                                         </div>
@@ -156,15 +151,12 @@
                         <!-- /.Main content -->
                     </div>
                 <!-- /.content-wrapper -->
-
                 <!-- Main Footer -->
                 <?php $this->load->view('template/mainfooter'); ?>
                 <!-- Main Footer -->
-
             <!-- Main Sidebar Container -->
         </div>
         <!-- ./wrapper -->
-
     </body>
     <!-- Library Footer -->
     <?php $this->load->view('template/libFooter'); ?>

@@ -159,7 +159,7 @@
                     Swal.fire({
                         icon: 'error',
                         title: 'Opps! unable to connect to database',
-                        text: 'Please Contact Administrator. Error Code : ' + response,
+                        text: 'Please Contact Administrator. Error Code : ' + response.status,
                     });
                     console.log(response);
                 }

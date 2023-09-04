@@ -23,7 +23,8 @@ class Barang extends CI_Controller {
 
 	public function index()
 	{
-		$data['active'] = 'listbarang';
+        $data['mbarang'] = 'menu-open';
+		$data['listbarang'] = 'active';
 		$this->load->view('barang/listBarang', $data);
 	}
 

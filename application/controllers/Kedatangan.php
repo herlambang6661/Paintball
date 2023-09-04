@@ -36,7 +36,8 @@ class Kedatangan extends CI_Controller {
                 $kodeBarang = "K-" . date('y') . "00001";
             }
         // GET NOFORM
-		$data['active'] = 'kedatangan';
+        $data['mbarang'] = 'menu-open';
+		$data['kedatangan'] = 'active';
 		$data['kodeBarang'] = $kodeBarang;
 		$this->load->view('kedatangan/index', $data);
 	}

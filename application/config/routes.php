@@ -53,13 +53,14 @@ $route['default_controller'] = 'login';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-$route['Dashboard'] = 'Dashboard/Index';
-$route['Stock'] = 'Stock/Index';
-$route['Kedatangan'] = 'Kedatangan/Index';
+$route['Dashboard']     = 'Dashboard/Index';
+$route['Stock']         = 'Stock/Index';
+$route['Kedatangan']    = 'Kedatangan/Index';
 
 // ============= START ROUTES UNTUK MENU BARANG ==============================
 
-$route['Barang/List'] = 'Barang/Index';
+$route['Daftar/Ekspedisi']  = 'Daftar/Ekspedisi';
+$route['Barang/List']       = 'Barang/Index';
 
 // ============= END ROUTES UNTUK MENU BARANG ================================
 

@@ -36,7 +36,8 @@ class Pengeluaran extends CI_Controller {
                 $kodeBarang = "E-" . date('y') . "00001";
             }
         // GET NOFORM
-		$data['active'] = 'pengeluaran';
+        $data['mbarang'] = 'menu-open';
+		$data['pengeluaran'] = 'active';
 		$data['kodeBarang'] = $kodeBarang;
 		$this->load->view('pengeluaran/index', $data);
 	}
