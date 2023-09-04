@@ -200,4 +200,20 @@ class Pengeluaran extends CI_Controller {
         $this->output->set_header('Content-Type: application/json');
         echo json_encode($json['data']);
 	}
+    
+    public function getCustomer()
+    {
+        if(!isset($_POST['searchTerm'])){ 
+            $fetchData = $this->pengeluaran->getCustomerModel();
+        }else{ 
+            $search = $_POST['searchTerm'];   
+            $fetchData = $this->pengeluaran->getCustomerModel($search);
+        } 
+
+        $data = array();
+        foreach ($fetchData as $u) {
+            $data[] = array("id"=>$u->kodecustomer , "text"=>"(".$u->kodecustomer.") ".$u->nama);
+        }
+        echo json_encode($data);
+    }
 }

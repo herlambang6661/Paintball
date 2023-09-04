@@ -179,5 +179,6 @@ class Daftar extends CI_Controller {
             'dibuat' => $dibuat,
         );
         $this->daftar->save('pb_customer', $data);
+        redirect('Daftar/Customer');
     }
 }

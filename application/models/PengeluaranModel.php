@@ -116,4 +116,14 @@ class PengeluaranModel extends CI_Model
         $query = $this->db->get();
         return $query->result();
     }
+    
+    public function getCustomerModel($search = null) //default parameter nya null
+    {
+        $this->db->from("pb_customer");
+        $this->db->like('nama', $search);
+        $this->db->or_like('kodecustomer', $search);
+        $query = $this->db->get();
+
+        return $query->result();
+    }
 }

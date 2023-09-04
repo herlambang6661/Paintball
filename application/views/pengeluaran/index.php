@@ -289,7 +289,7 @@
                 language: "id",
                 placeholder: "Pilih Customer",
                 ajax: {
-                    url: "<?= base_url(); ?>/Kedatangan/getBarang",
+                    url: "<?= base_url(); ?>/Pengeluaran/getCustomer",
                     type: "post",
                     dataType: 'json',
                     delay: 250,
