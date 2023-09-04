@@ -138,16 +138,21 @@
                                                                                 <script>
                                                                                     function switchDollar(id) {
                                                                                         var btnDollar = document.getElementById('btnSwDl'+id);
+                                                                                        var icon = document.getElementById('iconSW'+id);
                                                                                         var kurs = document.getElementById('kurs_'+id);
                                                                                         var matauang = document.getElementById('matauang'+id);
 
                                                                                         if (btnDollar.classList == 'btn btn-sm btn-dark') {
+                                                                                            icon.classList.remove("fa-rupiah-sign");
+                                                                                            icon.classList.add("fa-dollar-sign");
                                                                                             btnDollar.classList.remove("btn-dark");
                                                                                             btnDollar.classList.add("btn-success");
                                                                                             kurs.removeAttribute('readonly');
                                                                                             matauang.value = 'USD';
                                                                                         }
                                                                                         else if (btnDollar.classList == 'btn btn-sm btn-success') {
+                                                                                            icon.classList.remove("fa-dollar-sign");
+                                                                                            icon.classList.add("fa-rupiah-sign");
                                                                                             btnDollar.classList.remove("btn-success");
                                                                                             btnDollar.classList.add("btn-dark");
                                                                                             kurs.setAttribute('readonly', true);
@@ -252,7 +257,7 @@
             // Kolom 5 Harga
             var td = document.createElement("td");
             // td.innerHTML += "<input type='number' name='harga[]' id='harga_"+idf+"' class='form-control form-control-sm inputNone' style='border-color:black;text-transform: uppercase;'>";
-            td.innerHTML += '<div class="input-group mb-3"><div class="input-group-prepend"><button class="btn btn-sm btn-dark" id="btnSwDl'+idf+'" onclick="switchDollar('+idf+')" type="button" style="border-color:black;"><i class="fa-solid fa-dollar-sign"></i></button></div><input type="text" name="harga[]" id="harga_'+idf+'" class="form-control form-control-sm" placeholder="" aria-label="" aria-describedby="basic-addon1" style="border-color:black;text-transform: uppercase;"></div>';                            
+            td.innerHTML += '<div class="input-group mb-3"><div class="input-group-prepend"><button class="btn btn-sm btn-dark" id="btnSwDl'+idf+'" onclick="switchDollar('+idf+')" type="button" style="border-color:black;"><i  id="iconSW'+idf+'" class="fa-solid fa-rupiah-sign"></i></button></div><input type="text" name="harga[]" id="harga_'+idf+'" class="form-control form-control-sm" placeholder="" aria-label="" aria-describedby="basic-addon1" style="border-color:black;text-transform: uppercase;"></div>';                            
             tr.appendChild(td);
 
             // Kolom 6 Kurs

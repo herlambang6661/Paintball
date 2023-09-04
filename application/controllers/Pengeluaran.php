@@ -48,52 +48,48 @@ class Pengeluaran extends CI_Controller {
         if ($cari == '') {
         } else {
             $data = $this->pengeluaran->ambilBarang($cari); ?>
-            <div class="row">
-                <div class="col">
-                    <table class="table table-stripped table-hover table-bordered table-sm text-nowrap" width="100%" id="example2" style="color: black;width:100%; text-transform:uppercase">
-                        <thead>
+                        <table class="table table-stripped table-hover table-bordered table-sm text-nowrap" width="100%" id="example2" style="color: black;width:100%; text-transform:uppercase">
+                            <thead>
+                                <tr>
+                                    <th>KodeBarang</th>
+                                    <th>Tanggal</th>
+                                    <th>KodeKedatangan</th>
+                                    <th>Nama</th>
+                                    <th>Qty</th>
+                                    <th>Satuan</th>
+                                    <th>Harga</th>
+                                    <th>Kurs</th>
+                                    <th>Trucking</th>
+                                    <th>Bea Cukai</th>
+                                    <th>Opsi</th>
+                                </tr>
+                            </thead>
+                            <?php foreach ($data as $u) { ?>
                             <tr>
-                                <th>KodeBarang</th>
-                                <th>Tanggal</th>
-                                <th>KodeKedatangan</th>
-                                <th>Nama</th>
-                                <th>Qty</th>
-                                <th>Satuan</th>
-                                <th>Harga</th>
-                                <th>Kurs</th>
-                                <th>Trucking</th>
-                                <th>Bea Cukai</th>
-                                <th>Opsi</th>
+                                <td><?php echo $u->kodebarang; ?></td>
+                                <td><?php echo $u->tgl_kedatanganitm; ?></td>
+                                <td><?php echo $u->kodekedatangan; ?></td>
+                                <td><?php echo $u->namabarang; ?></td>
+                                <td><?php echo $u->qty; ?></td>
+                                <td><?php echo $u->satuan; ?></td>
+                                <td><?php echo $u->harga; ?></td>
+                                <td><?php echo $u->kurs; ?></td>
+                                <td><?php echo $u->trucking; ?></td>
+                                <td><?php echo $u->bea_cukai; ?></td>
+                                <td><button type="button" class="btn btn-sm btn-primary tambahkebawah"
+                                        data-qty="<?php echo $u->qty; ?>"
+                                        data-customer="<?php echo $u->satuan; ?>"
+                                        data-harga="<?php echo $u->harga; ?>"
+                                        data-kurs="<?php echo $u->kurs; ?>"
+                                        data-trucking="<?php echo $u->trucking; ?>"
+                                        data-beacukai="<?php echo $u->bea_cukai; ?>"
+                                        data-namabrg="<?php echo $u->namabarang; ?>"
+                                        data-idbrg="<?php echo $u->kodebarang; ?>"
+                                        
+                                        ><i class="fa-solid fa-plus"></i></button></td>
                             </tr>
-                        </thead>
-                        <?php foreach ($data as $u) { ?>
-                        <tr>
-                            <td><?php echo $u->kodebarang; ?></td>
-                            <td><?php echo $u->tgl_kedatanganitm; ?></td>
-                            <td><?php echo $u->kodekedatangan; ?></td>
-                            <td><?php echo $u->namabarang; ?></td>
-                            <td><?php echo $u->qty; ?></td>
-                            <td><?php echo $u->satuan; ?></td>
-                            <td><?php echo $u->harga; ?></td>
-                            <td><?php echo $u->kurs; ?></td>
-                            <td><?php echo $u->trucking; ?></td>
-                            <td><?php echo $u->bea_cukai; ?></td>
-                            <td><button type="button" class="btn btn-sm btn-primary tambahkebawah"
-                                    data-qty="<?php echo $u->qty; ?>"
-                                    data-satuan="<?php echo $u->satuan; ?>"
-                                    data-harga="<?php echo $u->harga; ?>"
-                                    data-kurs="<?php echo $u->kurs; ?>"
-                                    data-trucking="<?php echo $u->trucking; ?>"
-                                    data-beacukai="<?php echo $u->bea_cukai; ?>"
-                                    data-namabrg="<?php echo $u->namabarang; ?>"
-                                    data-idbrg="<?php echo $u->kodebarang; ?>"
-                                    
-                                    ><i class="fa-solid fa-plus"></i></button></td>
-                        </tr>
-                        <?php }?>
-                    </table>
-                </div>
-            </div>
+                            <?php }?>
+                        </table>
             <?php
         }
     }

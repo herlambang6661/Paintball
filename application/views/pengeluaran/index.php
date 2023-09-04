@@ -29,13 +29,13 @@
                                 <div class="container-fluid">
                                     <div class="row mb-2">
                                         <div class="col-sm-6">
-                                            <h1 class="m-0"><i class="fa-solid fa-truck-ramp-box"></i> Pengeluaran Barang</h1>
+                                            <h1 class="m-0"><i class="fa-solid fa-truck-ramp-box"></i> Penjualan Barang</h1>
                                         </div><!-- /.col -->
                                         <div class="col-sm-6">
                                             <ol class="breadcrumb float-sm-right">
                                                 <li class="breadcrumb-item"><a href="<?= base_url(); ?>Dashboard"><i class="nav-icon fas fa-tachometer-alt"></i> Dashboard</a></li>
                                                 <li class="breadcrumb-item active"><i class="nav-icon fas fa-box"></i> Barang</li>
-                                                <li class="breadcrumb-item active"><i class="fa-solid fa-truck-ramp-box"></i> Pengeluaran Barang</li>
+                                                <li class="breadcrumb-item active"><i class="fa-solid fa-truck-ramp-box"></i> Penjualan Barang</li>
                                             </ol>
                                         </div><!-- /.col -->
                                     </div><!-- /.row -->
@@ -57,10 +57,10 @@
                                                                 <div class="card-header p-0 border-bottom-0">
                                                                     <ul class="nav nav-tabs" id="custom-tabs-four-tab" role="tablist">
                                                                         <li class="nav-item">
-                                                                            <a class="nav-link active" id="custom-tabs-four-1-tab" data-toggle="pill" href="#custom-tabs-four-1" role="tab" aria-controls="custom-tabs-four-1" aria-selected="false"><i class="fa-solid fa-list-ul"></i> List Pengeluaran</a>
+                                                                            <a class="nav-link active" id="custom-tabs-four-1-tab" data-toggle="pill" href="#custom-tabs-four-1" role="tab" aria-controls="custom-tabs-four-1" aria-selected="false"><i class="fa-solid fa-list-ul"></i> List Penjualan</a>
                                                                         </li>
                                                                         <li class="nav-item">
-                                                                            <a class="nav-link" id="custom-tabs-four-2-tab" data-toggle="pill" href="#custom-tabs-four-2" role="tab" aria-controls="custom-tabs-four-2" aria-selected="false"><i class="fa-solid fa-truck-ramp-box"></i> Tambah Pengeluaran</a>
+                                                                            <a class="nav-link" id="custom-tabs-four-2-tab" data-toggle="pill" href="#custom-tabs-four-2" role="tab" aria-controls="custom-tabs-four-2" aria-selected="false"><i class="fa-solid fa-truck-ramp-box"></i> Tambah Penjualan</a>
                                                                         </li>
                                                                     </ul>
                                                                 </div>
@@ -140,11 +140,9 @@
                                                                                         <td style="border-left-color:#FFFFFF;border-top-color:#FFFFFF;border-bottom-color:#FFFFFF;" width="5%"></td>
                                                                                         <td style="border-color:black" class="bg-gradient-success text-white" width="20%">Nama</td>
                                                                                         <td style="border-color:black" class="bg-gradient-success text-white" width="10%">Qty</td>
-                                                                                        <td style="border-color:black" class="bg-gradient-success text-white" width="10%">Satuan</td>
                                                                                         <td style="border-color:black" class="bg-gradient-success text-white" width="10%">Harga</td>
-                                                                                        <td style="border-color:black" class="bg-gradient-success text-white" width="10%">Kurs</td>
-                                                                                        <td style="border-color:black" class="bg-gradient-success text-white" width="10%">Trucking</td>
-                                                                                        <td style="border-color:black" class="bg-gradient-success text-white" width="10%">Bea Cukai</td>
+                                                                                        <td style="border-color:black" class="bg-gradient-success text-white" width="10%">Harga Satuan</td>
+                                                                                        <td style="border-color:black" class="bg-gradient-success text-white" width="10%">customer</td>
                                                                                     </thead>
                                                                                 </table>
                                                                                 <div class="row">
@@ -211,7 +209,7 @@
         
         $(document).on('click', '.tambahkebawah', function() {
             var qty_atas = $(this).data('qty');
-            var satuan_atas = $(this).data('satuan');
+            var customer_atas = $(this).data('customer');
             var harga_atas = $(this).data('harga');
             var kurs_atas = $(this).data('kurs');
             var trucking_atas = $(this).data('trucking');
@@ -241,32 +239,22 @@
 
             // Kolom 3 Qty
             var td = document.createElement("td");
-            td.innerHTML += "<input type='text' name='qty[]' value='"+qty_atas+"' id='qty_"+idf+"' class='form-control form-control-sm inputNone' style='border-color:black;text-transform: uppercase;'>";
+            td.innerHTML += "<input type='number' name='qty[]' value='"+qty_atas+"' id='qty_"+idf+"' class='form-control form-control-sm inputNone' style='border-color:black;text-transform: uppercase;' onblur='getHargaSatuan("+idf+");batasiInputan("+idf+")' onclick='getHargaSatuan("+idf+");batasiInputan("+idf+")' onkeyup='getHargaSatuan("+idf+");batasiInputan("+idf+")'><input type='hidden' id='qtyasli_"+idf+"' value='"+qty_atas+"'>";
             tr.appendChild(td);
 
-            // Kolom 4 Satuan
+            // Kolom 4 Harga
             var td = document.createElement("td");
-            td.innerHTML += "<input type='text' readonly name='satuan[]' value='"+satuan_atas+"' id='satuan_"+idf+"' class='form-control form-control-sm inputNone' style='border-color:black;text-transform: uppercase;'>";
+            td.innerHTML += "<input type='number' name='harga[]' value='' id='harga_"+idf+"'  class='form-control form-control-sm inputNone' style='border-color:black;text-transform: uppercase;' onblur='getHargaSatuan("+idf+")' onclick='getHargaSatuan("+idf+")' onkeyup='getHargaSatuan("+idf+")'>";
             tr.appendChild(td);
 
             // Kolom 5 Harga
             var td = document.createElement("td");
-            td.innerHTML += "<input type='number' readonly name='harga[]' value='"+harga_atas+"' id='harga_"+idf+"' class='form-control form-control-sm inputNone' style='border-color:black;text-transform: uppercase;'>";
+            td.innerHTML += "<input type='number' name='harga_satuan[]' value='' id='harga_satuan_"+idf+"' class='form-control form-control-sm inputNone' style='border-color:black;text-transform: uppercase;'>";
             tr.appendChild(td);
 
-            // Kolom 6 Kurs
+            // Kolom 6 Customer
             var td = document.createElement("td");
-            td.innerHTML += "<input type='number' readonly name='kurs[]' value='"+kurs_atas+"' id='kurs_"+idf+"' class='form-control form-control-sm inputNone' style='border-color:black;text-transform: uppercase;'>";
-            tr.appendChild(td);
-
-            // Kolom 6 Trucking
-            var td = document.createElement("td");
-            td.innerHTML += "<input type='number' readonly name='trucking[]' value='"+kurs_atas+"' id='trucking_"+idf+"' class='form-control form-control-sm inputNone' style='border-color:black;text-transform: uppercase;'>";
-            tr.appendChild(td);
-
-            // Kolom 6 Bea Cukai
-            var td = document.createElement("td");
-            td.innerHTML += "<input type='number' readonly name='beacukai[]' value='"+beacukai_atas+"' id='beacukai_"+idf+"' class='form-control form-control-sm inputNone' style='border-color:black;text-transform: uppercase;'>";
+            td.innerHTML += "<select name='customer[]' class='form-control form-control-sm elementcust inputNone' style='width:100%'><option value='' selected='selected'></option></select>      <input type='hidden' id='kurs_"+idf+"' value='"+kurs_atas+"'>";
             tr.appendChild(td);
 
             detail_transaksi.appendChild(tr);
@@ -276,7 +264,30 @@
             
             $(".elementbrn").select2({
                 language: "id",
-                placeholder: "Pilih Mesin",
+                placeholder: "Pilih Barang",
+                disabled: true,
+                ajax: {
+                    url: "<?= base_url(); ?>/Kedatangan/getBarang",
+                    type: "post",
+                    dataType: 'json',
+                    delay: 250,
+                    data: function (params) {
+                        return {
+                            searchTerm: params.term // search term
+                        };
+                    },
+                    processResults: function (response) {
+                        return {
+                            results: response
+                        };
+                    },
+                    cache: true
+                },
+            });
+        
+            $(".elementcust").select2({
+                language: "id",
+                placeholder: "Pilih Customer",
                 ajax: {
                     url: "<?= base_url(); ?>/Kedatangan/getBarang",
                     type: "post",
@@ -440,6 +451,26 @@
                     console.log(response);
                 }
             });
+        }
+
+        function batasiInputan(params) {
+            document.getElementById("qty_"+params).addEventListener("change", function() {
+                let v = parseInt(this.value);
+                if (v < 1) this.value = 1;
+                if (v > $('#qtyasli_'+params).val()) this.value = $('#qtyasli_'+params).val();
+            });
+        }
+
+        function getHargaSatuan(params) {
+            var harga = $('#harga_'+params).val();
+            var qty = $('#qty_'+params).val();
+            var kurs = $('#kurs_'+params).val();
+            var harga_satuan;
+            if (kurs == 0) {
+                harga_satuan = (harga * qty) / qty;
+            } else {
+            }
+            $('#harga_satuan_'+params).val(harga_satuan);
         }
 
         
