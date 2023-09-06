@@ -125,11 +125,11 @@ class Pengeluaran extends CI_Controller {
 
         $idbarang = $_POST['namabarang'];
         $qty        = $_POST['qty'];
-        $satuan     = $_POST['satuan'];
         $harga      = $_POST['harga'];
-        $kurs       = $_POST['kurs'];
-        $trucking   = $_POST['trucking'];
-        $beacukai   = $_POST['beacukai'];
+        $harga_satuan     = $_POST['harga_satuan'];
+        // $kurs       = $_POST['kurs'];
+        // $trucking   = $_POST['trucking'];
+        // $beacukai   = $_POST['beacukai'];
 
         // Jika Item Barang Terisi => input barang
         if (!empty($idbarang)) {
@@ -155,11 +155,11 @@ class Pengeluaran extends CI_Controller {
                     'kodebarang' => $idbarang[$i],
                     'namabarang' => $this->pengeluaran->getBarang($idbarang[$i]),
                     'qty' => $qty[$i],
-                    'satuan' => $satuan[$i],
+                    // 'satuan' => $satuan[$i],
                     'harga' => $harga[$i],
-                    'kurs' => $kurs[$i],
-                    'trucking' => $kurs[$i],
-                    'bea_cukai' => $beacukai[$i],
+                    // 'kurs' => $kurs[$i],
+                    // 'trucking' => $kurs[$i],
+                    // 'bea_cukai' => $beacukai[$i],
                     'dibuat' => $dibuat,
                 );
                 $insert = $this->pengeluaran->save('pb_pengeluaranitm', $data);

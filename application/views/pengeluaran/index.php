@@ -247,7 +247,7 @@
             td.innerHTML += "<input type='number' name='harga[]' value='' id='harga_"+idf+"'  class='form-control form-control-sm inputNone' style='border-color:black;text-transform: uppercase;' onblur='getHargaSatuan("+idf+")' onclick='getHargaSatuan("+idf+")' onkeyup='getHargaSatuan("+idf+")'>";
             tr.appendChild(td);
 
-            // Kolom 5 Harga
+            // Kolom 5 Harga Satuan
             var td = document.createElement("td");
             td.innerHTML += "<input type='number' name='harga_satuan[]' value='' id='harga_satuan_"+idf+"' class='form-control form-control-sm inputNone' style='border-color:black;text-transform: uppercase;'>";
             tr.appendChild(td);
