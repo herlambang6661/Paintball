@@ -220,7 +220,7 @@ error_reporting(0);
                                                     <li class="nav-item">
                                                         <a href="<?= base_url(); ?>Pengeluaran" class="nav-link <?php echo $pengeluaran; ?>" style="margin-left: 15px">
                                                             <i class="fa-solid fa-truck-ramp-box nav-icon"></i>
-                                                            <p>Pengeluaran</p>
+                                                            <p>Penjualan</p>
                                                         </a>
                                                     </li>
                                                 </ul>

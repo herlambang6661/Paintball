@@ -82,11 +82,7 @@
                                                                                                                 <th width="8%">KodeBarang</th>
                                                                                                                 <th>Barang</th>
                                                                                                                 <th>Qty</th>
-                                                                                                                <th>Satuan</th>
                                                                                                                 <th>Harga</th>
-                                                                                                                <th>Kurs</th>
-                                                                                                                <th>Trucking</th>
-                                                                                                                <th>Bea Cukai</th>
                                                                                                                 <th width="8%">Opsi</th>
                                                                                                             </tr>
                                                                                                         </thead>
@@ -234,7 +230,7 @@
 
             // Kolom 2 Nama Barang
             var td = document.createElement("td");
-            td.innerHTML += '<select name="namabarang[]" class="form-control form-control-sm elementbrn inputNone" style="width:100%"><option value="'+idbrg_atas+'" selected="selected">('+idbrg_atas+') ' +namabrg_atas+'</option></select>';
+            td.innerHTML += '<select name="namabarang[]" readonly class="form-control form-control-sm inputNone" style="width:100%"><option value="'+idbrg_atas+'" selected="selected">('+idbrg_atas+') ' +namabrg_atas+'</option></select>';
             tr.appendChild(td);
 
             // Kolom 3 Qty
@@ -285,27 +281,27 @@
                 },
             });
         
-            $(".elementcust").select2({
-                language: "id",
-                placeholder: "Pilih Customer",
-                ajax: {
-                    url: "<?= base_url(); ?>/Pengeluaran/getCustomer",
-                    type: "post",
-                    dataType: 'json',
-                    delay: 250,
-                    data: function (params) {
-                        return {
-                            searchTerm: params.term // search term
-                        };
-                    },
-                    processResults: function (response) {
-                        return {
-                            results: response
-                        };
-                    },
-                    cache: true
-                },
-            });
+            // $(".elementcust").select2({
+            //     language: "id",
+            //     placeholder: "Pilih Customer",
+            //     ajax: {
+            //         url: "<?= base_url(); ?>/Pengeluaran/getCustomer",
+            //         type: "post",
+            //         dataType: 'json',
+            //         delay: 250,
+            //         data: function (params) {
+            //             return {
+            //                 searchTerm: params.term // search term
+            //             };
+            //         },
+            //         processResults: function (response) {
+            //             return {
+            //                 results: response
+            //             };
+            //         },
+            //         cache: true
+            //     },
+            // });
         });
         // function tambahItem() {
             
@@ -545,10 +541,6 @@
                         "bVisible": false,
                         "aTargets": [0]
                     },
-                    {className: "text-center"},
-                    {className: "text-center"},
-                    {className: "text-center"},
-                    {className: "text-center"},
                     {className: "text-center"},
                     {className: "text-center"},
                     {className: "text-center"},

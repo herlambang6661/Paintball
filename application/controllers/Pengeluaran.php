@@ -123,13 +123,11 @@ class Pengeluaran extends CI_Controller {
             'dibuat' => $dibuat
         );
 
-        $idbarang = $_POST['namabarang'];
-        $qty        = $_POST['qty'];
-        $harga      = $_POST['harga'];
-        $harga_satuan     = $_POST['harga_satuan'];
-        // $kurs       = $_POST['kurs'];
-        // $trucking   = $_POST['trucking'];
-        // $beacukai   = $_POST['beacukai'];
+        $idbarang       = $_POST['namabarang'];
+        $qty            = $_POST['qty'];
+        $harga          = $_POST['harga'];
+        $harga_satuan   = $_POST['harga_satuan'];
+        $customer       = $_POST['customer'];
 
         // Jika Item Barang Terisi => input barang
         if (!empty($idbarang)) {
@@ -155,15 +153,13 @@ class Pengeluaran extends CI_Controller {
                     'kodebarang' => $idbarang[$i],
                     'namabarang' => $this->pengeluaran->getBarang($idbarang[$i]),
                     'qty' => $qty[$i],
-                    // 'satuan' => $satuan[$i],
                     'harga' => $harga[$i],
-                    // 'kurs' => $kurs[$i],
-                    // 'trucking' => $kurs[$i],
-                    // 'bea_cukai' => $beacukai[$i],
+                    'harga_satuan' => $harga_satuan[$i],
+                    'customer' => $customer[$i],
                     'dibuat' => $dibuat,
+                    'status' => 'PENJUALAN',
                 );
                 $insert = $this->pengeluaran->save('pb_pengeluaranitm', $data);
-                // $this->pengeluaran->updateStock('pb_stock', 'kodebarang', $idbarang[$i], $qty[$i]);
             }
             echo "success";
         } else {
@@ -184,11 +180,7 @@ class Pengeluaran extends CI_Controller {
             $row[] = $element['kodebarang'];
             $row[] = $element['namabarang'];
             $row[] = $element['qty'];
-            $row[] = $element['satuan'];
             $row[] = $element['harga'];
-            $row[] = $element['kurs'];
-            $row[] = $element['trucking'];
-            $row[] = $element['bea_cukai'];
             $data[] = $row;
         }
         $json['data'] = array(
