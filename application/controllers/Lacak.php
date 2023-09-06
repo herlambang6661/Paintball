@@ -187,11 +187,6 @@ class Lacak extends CI_Controller {
             $row[] = $element['kodebarang'];
             $row[] = $element['namabarang'];
             $row[] = $element['qty'];
-            $row[] = $element['satuan'];
-            $row[] = $element['harga'];
-            $row[] = $element['kurs'];
-            $row[] = $element['trucking'];
-            $row[] = $element['bea_cukai'];
             $data[] = $row;
         }
         $json['data'] = array(

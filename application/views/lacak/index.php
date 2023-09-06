@@ -82,11 +82,7 @@
                                                                                                                 <th width="8%">KodeBarang</th>
                                                                                                                 <th>Barang</th>
                                                                                                                 <th>Qty</th>
-                                                                                                                <th>Satuan</th>
                                                                                                                 <th>Harga</th>
-                                                                                                                <th>Kurs</th>
-                                                                                                                <th>Trucking</th>
-                                                                                                                <th>Bea Cukai</th>
                                                                                                                 <th width="8%">Opsi</th>
                                                                                                             </tr>
                                                                                                         </thead>
@@ -141,10 +137,6 @@
                                                                                         <td style="border-color:black" class="bg-gradient-success text-white" width="20%">Nama</td>
                                                                                         <td style="border-color:black" class="bg-gradient-success text-white" width="10%">Qty</td>
                                                                                         <td style="border-color:black" class="bg-gradient-success text-white" width="10%">Satuan</td>
-                                                                                        <td style="border-color:black" class="bg-gradient-success text-white" width="10%">Harga</td>
-                                                                                        <td style="border-color:black" class="bg-gradient-success text-white" width="10%">Kurs</td>
-                                                                                        <td style="border-color:black" class="bg-gradient-success text-white" width="10%">Trucking</td>
-                                                                                        <td style="border-color:black" class="bg-gradient-success text-white" width="10%">Bea Cukai</td>
                                                                                     </thead>
                                                                                 </table>
                                                                                 <div class="row">
@@ -514,10 +506,6 @@
                         "bVisible": false,
                         "aTargets": [0]
                     },
-                    {className: "text-center"},
-                    {className: "text-center"},
-                    {className: "text-center"},
-                    {className: "text-center"},
                     {className: "text-center"},
                     {className: "text-center"},
                     {className: "text-center"},
